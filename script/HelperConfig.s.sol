@@ -4,10 +4,11 @@ pragma solidity ^0.8.25;
 import {Script} from "forge-std/Script.sol";
 import {VRFCoordinatorV2_5Mock} from "@chainlink/contracts/src/v0.8/vrf/mocks/VRFCoordinatorV2_5Mock.sol";
 import {LinkToken} from "test/mocks/LinkToken.t.sol";
+import {CommonBase} from "forge-std/Base.sol";
 
 error Helper_InvalidChainId(uint256 chainId);
 
-abstract contract CodeConstants {
+abstract contract CodeConstants is CommonBase {
     uint256 public constant ETH_SEPOLIA_CHAIN_ID = 11155111;
     uint256 public constant LOCAL_CHAIN_ID = 31337;
 
@@ -25,6 +26,7 @@ contract HelperConfig is Script, CodeConstants {
         uint32 callbackGasLimit;
         uint256 subscriptionId;
         address link;
+        address adminAccount;
     }
 
     NetworkConfig public localNetworkConfig;
@@ -49,15 +51,20 @@ contract HelperConfig is Script, CodeConstants {
         return networkConfigs[block.chainid];
     }
 
+    function setConfig(uint256 chainId, NetworkConfig memory config) external {
+        networkConfigs[chainId] = config;
+    }
+
     function getSepoliaNetworkConfig() public pure returns (NetworkConfig memory) {
         return NetworkConfig({
-            entraceFee: 0.01 ether, // 1e16
+            entraceFee: 0.001 ether, // 1e16
             interval: 30, // 30 second
             vrfCoordinator: 0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B,
             gasLane: 0x8077df514608a09f83e4e8d300645594e5d7234665448ba83f51a50f842bd3d9, // 200 gwei gas lane
             callbackGasLimit: 500000, // 500,000 Gas
             subscriptionId: 44135039354861124983076855627344573027802306496650106722819102975921481776972,
-            link: 0x779877A7B0D9E8603169DdbD7836e478b4624789
+            link: 0x779877A7B0D9E8603169DdbD7836e478b4624789,
+            adminAccount: 0xD670569F919308c11fD339C7dF2b84d2D0C69c2C
         });
     }
 
@@ -73,6 +80,8 @@ contract HelperConfig is Script, CodeConstants {
 
         LinkToken linkToken = new LinkToken();
 
+        // uint256 subId = vrfCoordinatorMock.createSubscription();
+
         vm.stopBroadcast();
 
         return NetworkConfig({
@@ -82,7 +91,8 @@ contract HelperConfig is Script, CodeConstants {
             gasLane: 0x8077df514608a09f83e4e8d300645594e5d7234665448ba83f51a50f842bd3d9, // 200 gwei gas lane
             callbackGasLimit: 500000, // 500,000 Gas
             subscriptionId: 0,
-            link: address(linkToken)
+            link: address(linkToken),
+            adminAccount: DEFAULT_SENDER // forge default sender.
         });
     }
 }

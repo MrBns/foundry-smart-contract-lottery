@@ -14,15 +14,17 @@ contract DeployRaffle is Script {
         if (config.subscriptionId == 0) {
             CreateSubscription subscriptionCreator = new CreateSubscription();
             (config.subscriptionId, config.vrfCoordinator) =
-                subscriptionCreator.createSubscription(config.vrfCoordinator);
+                subscriptionCreator.createSubscription(config.vrfCoordinator, config.adminAccount);
 
             // Fund it
             FundSubscription fundSubscription = new FundSubscription();
 
-            fundSubscription.fundSubscription(config.vrfCoordinator, config.subscriptionId, config.link);
+            fundSubscription.fundSubscription(
+                config.vrfCoordinator, config.subscriptionId, config.link, config.adminAccount
+            );
         }
 
-        vm.startBroadcast();
+        vm.startBroadcast(config.adminAccount);
         Raffle raffle = new Raffle(
             config.entraceFee,
             config.interval,
@@ -35,10 +37,16 @@ contract DeployRaffle is Script {
         vm.stopBroadcast();
 
         AddConsumer addConsumer = new AddConsumer();
-        addConsumer.addConsumer(address(raffle), config.vrfCoordinator, config.subscriptionId);
+        // add consumer use broadcast.
+        addConsumer.addConsumer(address(raffle), config.vrfCoordinator, config.subscriptionId, config.adminAccount);
+
+        // after all updating network=>config  map
+        helperConfig.setConfig(block.chainid, config);
 
         return (raffle, helperConfig);
     }
 
-    function run() external {}
+    function run() external {
+        deployContract();
+    }
 }
