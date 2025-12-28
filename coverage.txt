@@ -1,0 +1,741 @@
+Compiling 43 files with Solc 0.8.30
+Solc 0.8.30 finished in 1.06s
+Compiler run successful!
+Analysing contracts...
+Running tests...
+
+Ran 7 tests for test/unit/RaffleTest.t.sol:RaffleTest
+[PASS] testEnteringraffleEmitsEvent() (gas: 67337)
+[PASS] testRaffleInitializeInOpenState() (gas: 8057)
+[PASS] testRaffleRecordsPlayersWhenTheyEnter() (gas: 67138)
+[PASS] testRaffleRevertWhenYouDontPayEnough() (gas: 9024)
+[PASS] test_DontAllowPlayersToEnterWhileRaflleIsCalculating() (gas: 227632)
+[PASS] test_checkUpKeepRevertIfItHasNoBalance() (gas: 20914)
+[PASS] test_checkUpKeepRevertIfRaffleIsNotOpen() (gas: 222822)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 18.19ms (12.07ms CPU time)
+
+Ran 1 test suite in 21.75ms (18.19ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)
+script/DeployRaffle.s.sol:
+- Line (location: (source ID: 37, lines: 10..42, bytes: 338..1515), hits: 7) -> "function deployContract() public...rn (raffle, helperConfig);\n    }"
+- Function "deployContract" (location: (source ID: 37, lines: 10..42, bytes: 338..1515), hits: 7) -> "function deployContract() public...rn (raffle, helperConfig);\n    }"
+- Line (location: (source ID: 37, lines: 11..12, bytes: 412..458), hits: 7) -> "HelperConfig helperConfig = new HelperConfig()"
+- Statement (location: (source ID: 37, lines: 11..12, bytes: 412..458), hits: 7) -> "HelperConfig helperConfig = new HelperConfig()"
+- Statement (location: (source ID: 37, lines: 11..12, bytes: 440..458), hits: 7) -> "new HelperConfig()"
+- Line (location: (source ID: 37, lines: 12..13, bytes: 468..535), hits: 7) -> "HelperConfig.NetworkConfig memor...onfig = helperConfig.getConfig()"
+- Statement (location: (source ID: 37, lines: 12..13, bytes: 468..535), hits: 7) -> "HelperConfig.NetworkConfig memor...onfig = helperConfig.getConfig()"
+- Statement (location: (source ID: 37, lines: 12..13, bytes: 511..535), hits: 7) -> "helperConfig.getConfig()"
+- Line (location: (source ID: 37, lines: 14..15, bytes: 550..576), hits: 7) -> "config.subscriptionId == 0"
+- Statement (location: (source ID: 37, lines: 14..15, bytes: 550..576), hits: 7) -> "config.subscriptionId == 0"
+- Branch (branch: 0, path: 0) (location: (source ID: 37, lines: 14..24, bytes: 578..1011), hits: 7) -> "{\n            CreateSubscription...ptionId, config.link);\n        }"
+- Line (location: (source ID: 37, lines: 15..16, bytes: 592..657), hits: 7) -> "CreateSubscription subscriptionC...eator = new CreateSubscription()"
+- Statement (location: (source ID: 37, lines: 15..16, bytes: 592..657), hits: 7) -> "CreateSubscription subscriptionC...eator = new CreateSubscription()"
+- Statement (location: (source ID: 37, lines: 15..16, bytes: 633..657), hits: 7) -> "new CreateSubscription()"
+- Line (location: (source ID: 37, lines: 16..18, bytes: 671..797), hits: 7) -> "(config.subscriptionId, config.v...scription(config.vrfCoordinator)"
+- Statement (location: (source ID: 37, lines: 16..18, bytes: 671..797), hits: 7) -> "(config.subscriptionId, config.v...scription(config.vrfCoordinator)"
+- Line (location: (source ID: 37, lines: 20..21, bytes: 835..893), hits: 7) -> "FundSubscription fundSubscription = new FundSubscription()"
+- Statement (location: (source ID: 37, lines: 20..21, bytes: 835..893), hits: 7) -> "FundSubscription fundSubscription = new FundSubscription()"
+- Statement (location: (source ID: 37, lines: 20..21, bytes: 871..893), hits: 7) -> "new FundSubscription()"
+- Line (location: (source ID: 37, lines: 22..23, bytes: 908..1000), hits: 7) -> "fundSubscription.fundSubscriptio...fig.subscriptionId, config.link)"
+- Statement (location: (source ID: 37, lines: 22..23, bytes: 908..1000), hits: 7) -> "fundSubscription.fundSubscriptio...fig.subscriptionId, config.link)"
+- Line (location: (source ID: 37, lines: 25..26, bytes: 1021..1040), hits: 7) -> "vm.startBroadcast()"
+- Statement (location: (source ID: 37, lines: 25..26, bytes: 1021..1040), hits: 7) -> "vm.startBroadcast()"
+- Line (location: (source ID: 37, lines: 26..34, bytes: 1050..1289), hits: 7) -> "Raffle raffle = new Raffle(\n    ...nfig.callbackGasLimit)\n        )"
+- Statement (location: (source ID: 37, lines: 26..34, bytes: 1050..1289), hits: 7) -> "Raffle raffle = new Raffle(\n    ...nfig.callbackGasLimit)\n        )"
+- Statement (location: (source ID: 37, lines: 26..34, bytes: 1066..1289), hits: 7) -> "new Raffle(\n            config.e...nfig.callbackGasLimit)\n        )"
+- Line (location: (source ID: 37, lines: 35..36, bytes: 1300..1318), hits: 7) -> "vm.stopBroadcast()"
+- Statement (location: (source ID: 37, lines: 35..36, bytes: 1300..1318), hits: 7) -> "vm.stopBroadcast()"
+- Line (location: (source ID: 37, lines: 37..38, bytes: 1329..1372), hits: 7) -> "AddConsumer addConsumer = new AddConsumer()"
+- Statement (location: (source ID: 37, lines: 37..38, bytes: 1329..1372), hits: 7) -> "AddConsumer addConsumer = new AddConsumer()"
+- Statement (location: (source ID: 37, lines: 37..38, bytes: 1355..1372), hits: 7) -> "new AddConsumer()"
+- Line (location: (source ID: 37, lines: 38..39, bytes: 1382..1468), hits: 7) -> "addConsumer.addConsumer(address(...rdinator, config.subscriptionId)"
+- Statement (location: (source ID: 37, lines: 38..39, bytes: 1382..1468), hits: 7) -> "addConsumer.addConsumer(address(...rdinator, config.subscriptionId)"
+- Line (location: (source ID: 37, lines: 40..41, bytes: 1479..1508), hits: 7) -> "return (raffle, helperConfig)"
+- Statement (location: (source ID: 37, lines: 40..41, bytes: 1479..1508), hits: 7) -> "return (raffle, helperConfig)"
+- Line (location: (source ID: 37, lines: 43..44, bytes: 1521..1547), hits: 0) -> "function run() external {}"
+- Function "run" (location: (source ID: 37, lines: 43..44, bytes: 1521..1547), hits: 0) -> "function run() external {}"
+
+script/HelperConfig.s.sol:
+- Line (location: (source ID: 38, lines: 33..37, bytes: 1030..1195), hits: 7) -> "constructor() {\n        networkC...tOrCreateAnvilEthConfig();\n    }"
+- Function "constructor" (location: (source ID: 38, lines: 33..37, bytes: 1030..1195), hits: 7) -> "constructor() {\n        networkC...tOrCreateAnvilEthConfig();\n    }"
+- Line (location: (source ID: 38, lines: 34..35, bytes: 1054..1118), hits: 7) -> "networkConfigs[ETH_SEPOLIA_CHAIN_ID] = getSepoliaNetworkConfig()"
+- Statement (location: (source ID: 38, lines: 34..35, bytes: 1054..1118), hits: 7) -> "networkConfigs[ETH_SEPOLIA_CHAIN_ID] = getSepoliaNetworkConfig()"
+- Line (location: (source ID: 38, lines: 35..36, bytes: 1128..1188), hits: 7) -> "networkConfigs[LOCAL_CHAIN_ID] = getOrCreateAnvilEthConfig()"
+- Statement (location: (source ID: 38, lines: 35..36, bytes: 1128..1188), hits: 7) -> "networkConfigs[LOCAL_CHAIN_ID] = getOrCreateAnvilEthConfig()"
+- Line (location: (source ID: 38, lines: 38..47, bytes: 1201..1583), hits: 0) -> "function getConfigByChainId(uint...(block.chainid);\n        }\n    }"
+- Function "getConfigByChainId" (location: (source ID: 38, lines: 38..47, bytes: 1201..1583), hits: 0) -> "function getConfigByChainId(uint...(block.chainid);\n        }\n    }"
+- Line (location: (source ID: 38, lines: 39..40, bytes: 1298..1350), hits: 0) -> "networkConfigs[chainId].vrfCoordinator != address(0)"
+- Statement (location: (source ID: 38, lines: 39..40, bytes: 1298..1350), hits: 0) -> "networkConfigs[chainId].vrfCoordinator != address(0)"
+- Branch (branch: 0, path: 0) (location: (source ID: 38, lines: 39..42, bytes: 1352..1407), hits: 0) -> "{\n            return networkConfigs[chainId];\n        }"
+- Branch (branch: 0, path: 1) (location: (source ID: 38, lines: 39..46, bytes: 1294..1577), hits: 0) -> "if (networkConfigs[chainId].vrfC...hainId(block.chainid);\n        }"
+- Line (location: (source ID: 38, lines: 40..41, bytes: 1366..1396), hits: 0) -> "return networkConfigs[chainId]"
+- Statement (location: (source ID: 38, lines: 40..41, bytes: 1366..1396), hits: 0) -> "return networkConfigs[chainId]"
+- Line (location: (source ID: 38, lines: 41..42, bytes: 1417..1442), hits: 0) -> "chainId == LOCAL_CHAIN_ID"
+- Statement (location: (source ID: 38, lines: 41..42, bytes: 1417..1442), hits: 0) -> "chainId == LOCAL_CHAIN_ID"
+- Branch (branch: 1, path: 0) (location: (source ID: 38, lines: 41..44, bytes: 1444..1503), hits: 0) -> "{\n            return getOrCreateAnvilEthConfig();\n        }"
+- Branch (branch: 1, path: 1) (location: (source ID: 38, lines: 41..46, bytes: 1413..1577), hits: 0) -> "if (chainId == LOCAL_CHAIN_ID) {...hainId(block.chainid);\n        }"
+- Line (location: (source ID: 38, lines: 42..43, bytes: 1458..1492), hits: 0) -> "return getOrCreateAnvilEthConfig()"
+- Statement (location: (source ID: 38, lines: 42..43, bytes: 1458..1492), hits: 0) -> "return getOrCreateAnvilEthConfig()"
+- Statement (location: (source ID: 38, lines: 42..43, bytes: 1465..1492), hits: 0) -> "getOrCreateAnvilEthConfig()"
+- Line (location: (source ID: 38, lines: 44..45, bytes: 1523..1566), hits: 0) -> "revert Helper_InvalidChainId(block.chainid)"
+- Statement (location: (source ID: 38, lines: 44..45, bytes: 1523..1566), hits: 0) -> "revert Helper_InvalidChainId(block.chainid)"
+- Line (location: (source ID: 38, lines: 48..51, bytes: 1589..1708), hits: 14) -> "function getConfig() external vi...orkConfigs[block.chainid];\n    }"
+- Function "getConfig" (location: (source ID: 38, lines: 48..51, bytes: 1589..1708), hits: 14) -> "function getConfig() external vi...orkConfigs[block.chainid];\n    }"
+- Line (location: (source ID: 38, lines: 49..50, bytes: 1665..1701), hits: 14) -> "return networkConfigs[block.chainid]"
+- Statement (location: (source ID: 38, lines: 49..50, bytes: 1665..1701), hits: 14) -> "return networkConfigs[block.chainid]"
+- Line (location: (source ID: 38, lines: 52..63, bytes: 1714..2328), hits: 7) -> "function getSepoliaNetworkConfig...36e478b4624789\n        });\n    }"
+- Function "getSepoliaNetworkConfig" (location: (source ID: 38, lines: 52..63, bytes: 1714..2328), hits: 7) -> "function getSepoliaNetworkConfig...36e478b4624789\n        });\n    }"
+- Line (location: (source ID: 38, lines: 53..62, bytes: 1802..2321), hits: 7) -> "return NetworkConfig({\n         ...9DdbD7836e478b4624789\n        })"
+- Statement (location: (source ID: 38, lines: 53..62, bytes: 1802..2321), hits: 7) -> "return NetworkConfig({\n         ...9DdbD7836e478b4624789\n        })"
+- Line (location: (source ID: 38, lines: 64..88, bytes: 2334..3294), hits: 7) -> "function getOrCreateAnvilEthConf...ess(linkToken)\n        });\n    }"
+- Function "getOrCreateAnvilEthConfig" (location: (source ID: 38, lines: 64..88, bytes: 2334..3294), hits: 7) -> "function getOrCreateAnvilEthConf...ess(linkToken)\n        });\n    }"
+- Line (location: (source ID: 38, lines: 65..66, bytes: 2423..2470), hits: 7) -> "localNetworkConfig.vrfCoordinator != address(0)"
+- Statement (location: (source ID: 38, lines: 65..66, bytes: 2423..2470), hits: 7) -> "localNetworkConfig.vrfCoordinator != address(0)"
+- Branch (branch: 2, path: 0) (location: (source ID: 38, lines: 65..68, bytes: 2472..2522), hits: 0) -> "{\n            return localNetworkConfig;\n        }"
+- Line (location: (source ID: 38, lines: 66..67, bytes: 2486..2511), hits: 0) -> "return localNetworkConfig"
+- Statement (location: (source ID: 38, lines: 66..67, bytes: 2486..2511), hits: 0) -> "return localNetworkConfig"
+- Line (location: (source ID: 38, lines: 70..71, bytes: 2616..2635), hits: 7) -> "vm.startBroadcast()"
+- Statement (location: (source ID: 38, lines: 70..71, bytes: 2616..2635), hits: 7) -> "vm.startBroadcast()"
+- Line (location: (source ID: 38, lines: 71..73, bytes: 2645..2787), hits: 7) -> "VRFCoordinatorV2_5Mock vrfCoordi...CE_LINK, MOCK_WEI_PER_UINT_LINK)"
+- Statement (location: (source ID: 38, lines: 71..73, bytes: 2645..2787), hits: 7) -> "VRFCoordinatorV2_5Mock vrfCoordi...CE_LINK, MOCK_WEI_PER_UINT_LINK)"
+- Line (location: (source ID: 38, lines: 72..73, bytes: 2701..2787), hits: 7) -> "new VRFCoordinatorV2_5Mock(MOCK_...CE_LINK, MOCK_WEI_PER_UINT_LINK)"
+- Statement (location: (source ID: 38, lines: 72..73, bytes: 2701..2787), hits: 7) -> "new VRFCoordinatorV2_5Mock(MOCK_...CE_LINK, MOCK_WEI_PER_UINT_LINK)"
+- Line (location: (source ID: 38, lines: 74..75, bytes: 2798..2835), hits: 7) -> "LinkToken linkToken = new LinkToken()"
+- Statement (location: (source ID: 38, lines: 74..75, bytes: 2798..2835), hits: 7) -> "LinkToken linkToken = new LinkToken()"
+- Statement (location: (source ID: 38, lines: 74..75, bytes: 2820..2835), hits: 7) -> "new LinkToken()"
+- Line (location: (source ID: 38, lines: 76..77, bytes: 2846..2864), hits: 7) -> "vm.stopBroadcast()"
+- Statement (location: (source ID: 38, lines: 76..77, bytes: 2846..2864), hits: 7) -> "vm.stopBroadcast()"
+- Line (location: (source ID: 38, lines: 78..87, bytes: 2875..3287), hits: 7) -> "return NetworkConfig({\n         ...k: address(linkToken)\n        })"
+- Statement (location: (source ID: 38, lines: 78..87, bytes: 2875..3287), hits: 7) -> "return NetworkConfig({\n         ...k: address(linkToken)\n        })"
+
+script/Interaction.s.sol:
+- Line (location: (source ID: 39, lines: 11..18, bytes: 452..766), hits: 0) -> "function createSubscriptionUsing...n (subId, vrfCoordinator);\n    }"
+- Function "createSubscriptionUsingConfig" (location: (source ID: 39, lines: 11..18, bytes: 452..766), hits: 0) -> "function createSubscriptionUsing...n (subId, vrfCoordinator);\n    }"
+- Line (location: (source ID: 39, lines: 12..13, bytes: 543..589), hits: 0) -> "HelperConfig helperConfig = new HelperConfig()"
+- Statement (location: (source ID: 39, lines: 12..13, bytes: 543..589), hits: 0) -> "HelperConfig helperConfig = new HelperConfig()"
+- Statement (location: (source ID: 39, lines: 12..13, bytes: 571..589), hits: 0) -> "new HelperConfig()"
+- Line (location: (source ID: 39, lines: 13..14, bytes: 599..663), hits: 0) -> "address vrfCoordinator = helperConfig.getConfig().vrfCoordinator"
+- Statement (location: (source ID: 39, lines: 13..14, bytes: 599..663), hits: 0) -> "address vrfCoordinator = helperConfig.getConfig().vrfCoordinator"
+- Line (location: (source ID: 39, lines: 15..16, bytes: 674..719), hits: 0) -> "(subId,) = createSubscription(vrfCoordinator)"
+- Statement (location: (source ID: 39, lines: 15..16, bytes: 674..719), hits: 0) -> "(subId,) = createSubscription(vrfCoordinator)"
+- Line (location: (source ID: 39, lines: 16..17, bytes: 729..759), hits: 0) -> "return (subId, vrfCoordinator)"
+- Statement (location: (source ID: 39, lines: 16..17, bytes: 729..759), hits: 0) -> "return (subId, vrfCoordinator)"
+- Line (location: (source ID: 39, lines: 19..30, bytes: 772..1260), hits: 7) -> "function createSubscription(addr...n (subId, vrfCoordinator);\n    }"
+- Function "createSubscription" (location: (source ID: 39, lines: 19..30, bytes: 772..1260), hits: 7) -> "function createSubscription(addr...n (subId, vrfCoordinator);\n    }"
+- Line (location: (source ID: 39, lines: 20..21, bytes: 874..943), hits: 7) -> "console.log(\"creating subscripti...r chain id  -> \", block.chainid)"
+- Statement (location: (source ID: 39, lines: 20..21, bytes: 874..943), hits: 7) -> "console.log(\"creating subscripti...r chain id  -> \", block.chainid)"
+- Line (location: (source ID: 39, lines: 22..23, bytes: 954..973), hits: 7) -> "vm.startBroadcast()"
+- Statement (location: (source ID: 39, lines: 22..23, bytes: 954..973), hits: 7) -> "vm.startBroadcast()"
+- Line (location: (source ID: 39, lines: 23..24, bytes: 983..1050), hits: 7) -> "subId = VRFCoordinatorV2_5Mock(v...oordinator).createSubscription()"
+- Statement (location: (source ID: 39, lines: 23..24, bytes: 983..1050), hits: 7) -> "subId = VRFCoordinatorV2_5Mock(v...oordinator).createSubscription()"
+- Line (location: (source ID: 39, lines: 24..25, bytes: 1060..1078), hits: 7) -> "vm.stopBroadcast()"
+- Statement (location: (source ID: 39, lines: 24..25, bytes: 1060..1078), hits: 7) -> "vm.stopBroadcast()"
+- Line (location: (source ID: 39, lines: 26..27, bytes: 1089..1139), hits: 7) -> "console.log(\"created subscription id is :\", subId)"
+- Statement (location: (source ID: 39, lines: 26..27, bytes: 1089..1139), hits: 7) -> "console.log(\"created subscription id is :\", subId)"
+- Line (location: (source ID: 39, lines: 27..28, bytes: 1149..1213), hits: 7) -> "console.log(\"please update the subscription id to your config.\")"
+- Statement (location: (source ID: 39, lines: 27..28, bytes: 1149..1213), hits: 7) -> "console.log(\"please update the subscription id to your config.\")"
+- Line (location: (source ID: 39, lines: 28..29, bytes: 1223..1253), hits: 7) -> "return (subId, vrfCoordinator)"
+- Statement (location: (source ID: 39, lines: 28..29, bytes: 1223..1253), hits: 7) -> "return (subId, vrfCoordinator)"
+- Line (location: (source ID: 39, lines: 31..34, bytes: 1266..1338), hits: 0) -> "function run() external {\n      ...SubscriptionUsingConfig();\n    }"
+- Function "run.0" (location: (source ID: 39, lines: 31..34, bytes: 1266..1338), hits: 0) -> "function run() external {\n      ...SubscriptionUsingConfig();\n    }"
+- Line (location: (source ID: 39, lines: 32..33, bytes: 1300..1331), hits: 0) -> "createSubscriptionUsingConfig()"
+- Statement (location: (source ID: 39, lines: 32..33, bytes: 1300..1331), hits: 0) -> "createSubscriptionUsingConfig()"
+- Line (location: (source ID: 39, lines: 39..47, bytes: 1465..1851), hits: 0) -> "function fundSubscriptionUsingCo...ubscriptionId, linkToken);\n    }"
+- Function "fundSubscriptionUsingConfig" (location: (source ID: 39, lines: 39..47, bytes: 1465..1851), hits: 0) -> "function fundSubscriptionUsingCo...ubscriptionId, linkToken);\n    }"
+- Line (location: (source ID: 39, lines: 40..41, bytes: 1521..1567), hits: 0) -> "HelperConfig helperCanfig = new HelperConfig()"
+- Statement (location: (source ID: 39, lines: 40..41, bytes: 1521..1567), hits: 0) -> "HelperConfig helperConfig = new HelperConfig()"
+- Statement (location: (source ID: 39, lines: 40..41, bytes: 1549..1567), hits: 0) -> "new HelperConfig()"
+- Line (location: (source ID: 39, lines: 41..42, bytes: 1577..1641), hits: 0) -> "address vrfCoordinator = helperConfig.getConfig().vrfCoordinator"
+- Statement (location: (source ID: 39, lines: 41..42, bytes: 1577..1641), hits: 0) -> "address vrfCoordinator = helperConfig.getConfig().vrfCoordinator"
+- Line (location: (source ID: 39, lines: 42..43, bytes: 1651..1715), hits: 0) -> "uint256 subscriptionId = helperConfig.getConfig().subscriptionId"
+- Statement (location: (source ID: 39, lines: 42..43, bytes: 1651..1715), hits: 0) -> "uint256 subscriptionId = helperConfig.getConfig().subscriptionId"
+- Line (location: (source ID: 39, lines: 43..44, bytes: 1725..1774), hits: 0) -> "address linkToken = helperConfig.getConfig().link"
+- Statement (location: (source ID: 39, lines: 43..44, bytes: 1725..1774), hits: 0) -> "address linkToken = helperConfig.getConfig().link"
+- Line (location: (source ID: 39, lines: 45..46, bytes: 1785..1844), hits: 0) -> "fundSubscription(vrfCoordinator, subscriptionId, linkToken)"
+- Statement (location: (source ID: 39, lines: 45..46, bytes: 1785..1844), hits: 0) -> "fundSubscription(vrfCoordinator, subscriptionId, linkToken)"
+- Line (location: (source ID: 39, lines: 48..63, bytes: 1857..2553), hits: 7) -> "function fundSubscription(addres...stopBroadcast();\n        }\n    }"
+- Function "fundSubscription" (location: (source ID: 39, lines: 48..63, bytes: 1857..2553), hits: 7) -> "function fundSubscription(addres...stopBroadcast();\n        }\n    }"
+- Line (location: (source ID: 39, lines: 49..50, bytes: 1967..2020), hits: 7) -> "console.log(\"Funding Subscription: \", subscriptionId)"
+- Statement (location: (source ID: 39, lines: 49..50, bytes: 1967..2020), hits: 7) -> "console.log(\"Funding Subscription: \", subscriptionId)"
+- Line (location: (source ID: 39, lines: 50..51, bytes: 2030..2084), hits: 7) -> "console.log(\"Using VRF Coordinator: \", vrfCoordinator)"
+- Statement (location: (source ID: 39, lines: 50..51, bytes: 2030..2084), hits: 7) -> "console.log(\"Using VRF Coordinator: \", vrfCoordinator)"
+- Line (location: (source ID: 39, lines: 51..52, bytes: 2094..2136), hits: 7) -> "console.log(\"On ChainId: \", block.chainid)"
+- Statement (location: (source ID: 39, lines: 51..52, bytes: 2094..2136), hits: 7) -> "console.log(\"On ChainId: \", block.chainid)"
+- Line (location: (source ID: 39, lines: 53..54, bytes: 2151..2182), hits: 7) -> "block.chainid == LOCAL_CHAIN_ID"
+- Statement (location: (source ID: 39, lines: 53..54, bytes: 2151..2182), hits: 7) -> "block.chainid == LOCAL_CHAIN_ID"
+- Branch (branch: 0, path: 0) (location: (source ID: 39, lines: 53..58, bytes: 2184..2358), hits: 7) -> "{\n            vm.startBroadcast(...   vm.stopBroadcast();\n        }"
+- Branch (branch: 0, path: 1) (location: (source ID: 39, lines: 53..62, bytes: 2147..2547), hits: 0) -> "if (block.chainid == LOCAL_CHAIN...   vm.stopBroadcast();\n        }"
+- Line (location: (source ID: 39, lines: 54..55, bytes: 2198..2217), hits: 7) -> "vm.startBroadcast()"
+- Statement (location: (source ID: 39, lines: 54..55, bytes: 2198..2217), hits: 7) -> "vm.startBroadcast()"
+- Line (location: (source ID: 39, lines: 55..56, bytes: 2231..2315), hits: 7) -> "VRFCoordinatorV2_5Mock(vrfCoordi...ion(subscriptionId, FUND_AMOUNT)"
+- Statement (location: (source ID: 39, lines: 55..56, bytes: 2231..2315), hits: 7) -> "VRFCoordinatorV2_5Mock(vrfCoordi...ion(subscriptionId, FUND_AMOUNT)"
+- Line (location: (source ID: 39, lines: 56..57, bytes: 2329..2347), hits: 7) -> "vm.stopBroadcast()"
+- Statement (location: (source ID: 39, lines: 56..57, bytes: 2329..2347), hits: 7) -> "vm.stopBroadcast()"
+- Line (location: (source ID: 39, lines: 58..59, bytes: 2378..2397), hits: 0) -> "vm.startBroadcast()"
+- Statement (location: (source ID: 39, lines: 58..59, bytes: 2378..2397), hits: 0) -> "vm.startBroadcast()"
+- Line (location: (source ID: 39, lines: 59..60, bytes: 2411..2504), hits: 0) -> "LinkToken(linkToken).transferAnd...UNT, abi.encode(subscriptionId))"
+- Statement (location: (source ID: 39, lines: 59..60, bytes: 2411..2504), hits: 0) -> "LinkToken(linkToken).transferAnd...UNT, abi.encode(subscriptionId))"
+- Line (location: (source ID: 39, lines: 60..61, bytes: 2518..2536), hits: 0) -> "vm.stopBroadcast()"
+- Statement (location: (source ID: 39, lines: 60..61, bytes: 2518..2536), hits: 0) -> "vm.stopBroadcast()"
+- Line (location: (source ID: 39, lines: 64..67, bytes: 2559..2627), hits: 0) -> "function run() public {\n        ...SubscriptionUsingConfig();\n    }"
+- Function "run.1" (location: (source ID: 39, lines: 64..67, bytes: 2559..2627), hits: 0) -> "function run() public {\n        ...SubscriptionUsingConfig();\n    }"
+- Line (location: (source ID: 39, lines: 65..66, bytes: 2591..2620), hits: 0) -> "fundSubscriptionUsingConfig()"
+- Statement (location: (source ID: 39, lines: 65..66, bytes: 2591..2620), hits: 0) -> "fundSubscriptionUsingConfig()"
+- Line (location: (source ID: 39, lines: 70..77, bytes: 2668..3002), hits: 0) -> "function addConsumerUsingConfig(...d, vrfCoordinator, subId);\n    }"
+- Function "addConsumerUsingConfig" (location: (source ID: 39, lines: 70..77, bytes: 2668..3002), hits: 0) -> "function addConsumerUsingConfig(...d, vrfCoordinator, subId);\n    }"
+- Line (location: (source ID: 39, lines: 71..72, bytes: 2745..2791), hits: 0) -> "HelperConfig helperConfig = new HelperConfig()"
+- Statement (location: (source ID: 39, lines: 71..72, bytes: 2745..2791), hits: 0) -> "HelperConfig helperConfig = new HelperConfig()"
+- Statement (location: (source ID: 39, lines: 71..72, bytes: 2773..2791), hits: 0) -> "new HelperConfig()"
+- Line (location: (source ID: 39, lines: 72..73, bytes: 2801..2856), hits: 0) -> "uint256 subId = helperConfig.getConfig().subscriptionId"
+- Statement (location: (source ID: 39, lines: 72..73, bytes: 2801..2856), hits: 0) -> "uint256 subId = helperConfig.getConfig().subscriptionId"
+- Line (location: (source ID: 39, lines: 73..74, bytes: 2866..2930), hits: 0) -> "address vrfCoordinator = helperConfig.getConfig().vrfCoordinator"
+- Statement (location: (source ID: 39, lines: 73..74, bytes: 2866..2930), hits: 0) -> "address vrfCoordinator = helperConfig.getConfig().vrfCoordinator"
+- Line (location: (source ID: 39, lines: 75..76, bytes: 2941..2995), hits: 0) -> "addConsumer(mostRecentDeployed, vrfCoordinator, subId)"
+- Statement (location: (source ID: 39, lines: 75..76, bytes: 2941..2995), hits: 0) -> "addConsumer(mostRecentDeployed, vrfCoordinator, subId)"
+- Line (location: (source ID: 39, lines: 78..87, bytes: 3008..3424), hits: 7) -> "function addConsumer(address con...       vm.stopBroadcast();\n    }"
+- Function "addConsumer" (location: (source ID: 39, lines: 78..87, bytes: 3008..3424), hits: 7) -> "function addConsumer(address con...       vm.stopBroadcast();\n    }"
+- Line (location: (source ID: 39, lines: 79..80, bytes: 3111..3162), hits: 7) -> "console.log(\"Adding Consumer : \", contractToAddVrf)"
+- Statement (location: (source ID: 39, lines: 79..80, bytes: 3111..3162), hits: 7) -> "console.log(\"Adding Consumer : \", contractToAddVrf)"
+- Line (location: (source ID: 39, lines: 80..81, bytes: 3172..3220), hits: 7) -> "console.log(\"To Coordinator : \", vrfCoordinator)"
+- Statement (location: (source ID: 39, lines: 80..81, bytes: 3172..3220), hits: 7) -> "console.log(\"To Coordinator : \", vrfCoordinator)"
+- Line (location: (source ID: 39, lines: 81..82, bytes: 3230..3274), hits: 7) -> "console.log(\"On Chain Id : \", block.chainid)"
+- Statement (location: (source ID: 39, lines: 81..82, bytes: 3230..3274), hits: 7) -> "console.log(\"On Chain Id : \", block.chainid)"
+- Line (location: (source ID: 39, lines: 83..84, bytes: 3285..3304), hits: 7) -> "vm.startBroadcast()"
+- Statement (location: (source ID: 39, lines: 83..84, bytes: 3285..3304), hits: 7) -> "vm.startBroadcast()"
+- Line (location: (source ID: 39, lines: 84..85, bytes: 3314..3389), hits: 7) -> "VRFCoordinatorV2_5Mock(vrfCoordi...onsumer(subId, contractToAddVrf)"
+- Statement (location: (source ID: 39, lines: 84..85, bytes: 3314..3389), hits: 7) -> "VRFCoordinatorV2_5Mock(vrfCoordi...onsumer(subId, contractToAddVrf)"
+- Line (location: (source ID: 39, lines: 85..86, bytes: 3399..3417), hits: 7) -> "vm.stopBroadcast()"
+- Statement (location: (source ID: 39, lines: 85..86, bytes: 3399..3417), hits: 7) -> "vm.stopBroadcast()"
+- Line (location: (source ID: 39, lines: 88..92, bytes: 3430..3627), hits: 0) -> "function run() external {\n      ...mostRecentDeployedRaffle);\n    }"
+- Function "run.2" (location: (source ID: 39, lines: 88..92, bytes: 3430..3627), hits: 0) -> "function run() external {\n      ...mostRecentDeployedRaffle);\n    }"
+- Line (location: (source ID: 39, lines: 89..90, bytes: 3464..3562), hits: 0) -> "address mostRecentDeployedRaffle...loyment(\"Raffle\", block.chainid)"
+- Statement (location: (source ID: 39, lines: 89..90, bytes: 3464..3562), hits: 0) -> "address mostRecentDeployedRaffle...loyment(\"Raffle\", block.chainid)"
+- Statement (location: (source ID: 39, lines: 89..90, bytes: 3499..3562), hits: 0) -> "DevOpsTools.get_most_recent_deployment(\"Raffle\", block.chainid)"
+- Line (location: (source ID: 39, lines: 90..91, bytes: 3572..3620), hits: 0) -> "addConsumerUsingConfig(mostRecentDeployedRaffle)"
+- Statement (location: (source ID: 39, lines: 90..91, bytes: 3572..3620), hits: 0) -> "addConsumerUsingConfig(mostRecentDeployedRaffle)"
+
+src/Raffle.sol:
+- Line (location: (source ID: 40, lines: 69..84, bytes: 1910..2371), hits: 7) -> "constructor(\n        uint256 ent...eState = RaffleState.OPEN;\n    }"
+- Function "constructor" (location: (source ID: 40, lines: 69..84, bytes: 1910..2371), hits: 7) -> "constructor(\n        uint256 ent...eState = RaffleState.OPEN;\n    }"
+- Line (location: (source ID: 40, lines: 77..78, bytes: 2145..2173), hits: 7) -> "I_ENTRANCE_FEE = entranceFee"
+- Statement (location: (source ID: 40, lines: 77..78, bytes: 2145..2173), hits: 7) -> "I_ENTRANCE_FEE = entranceFee"
+- Line (location: (source ID: 40, lines: 78..79, bytes: 2183..2204), hits: 7) -> "I_INTERVAL = interval"
+- Statement (location: (source ID: 40, lines: 78..79, bytes: 2183..2204), hits: 7) -> "I_INTERVAL = interval"
+- Line (location: (source ID: 40, lines: 79..80, bytes: 2214..2238), hits: 7) -> "I_GASLANE_HASH = gasLane"
+- Statement (location: (source ID: 40, lines: 79..80, bytes: 2214..2238), hits: 7) -> "I_GASLANE_HASH = gasLane"
+- Line (location: (source ID: 40, lines: 80..81, bytes: 2248..2282), hits: 7) -> "I_SUBSCRIPTION_ID = subscriptionId"
+- Statement (location: (source ID: 40, lines: 80..81, bytes: 2248..2282), hits: 7) -> "I_SUBSCRIPTION_ID = subscriptionId"
+- Line (location: (source ID: 40, lines: 81..82, bytes: 2292..2323), hits: 7) -> "I_CALLBACK_GAS_LIMIT = gasLimit"
+- Statement (location: (source ID: 40, lines: 81..82, bytes: 2292..2323), hits: 7) -> "I_CALLBACK_GAS_LIMIT = gasLimit"
+- Line (location: (source ID: 40, lines: 82..83, bytes: 2333..2364), hits: 7) -> "sRaffleState = RaffleState.OPEN"
+- Statement (location: (source ID: 40, lines: 82..83, bytes: 2333..2364), hits: 7) -> "sRaffleState = RaffleState.OPEN"
+- Line (location: (source ID: 40, lines: 85..98, bytes: 2377..2716), hits: 6) -> "function enterRaffle() external ...RaffleEntered(msg.sender);\n    }"
+- Function "enterRaffle" (location: (source ID: 40, lines: 85..98, bytes: 2377..2716), hits: 6) -> "function enterRaffle() external ...RaffleEntered(msg.sender);\n    }"
+- Line (location: (source ID: 40, lines: 86..87, bytes: 2431..2457), hits: 6) -> "msg.value < I_ENTRANCE_FEE"
+- Statement (location: (source ID: 40, lines: 86..87, bytes: 2431..2457), hits: 6) -> "msg.value < I_ENTRANCE_FEE"
+- Branch (branch: 0, path: 0) (location: (source ID: 40, lines: 86..89, bytes: 2459..2520), hits: 1) -> "{\n            revert Raffle_SendMoreToEnterRffle();\n        }"
+- Line (location: (source ID: 40, lines: 87..88, bytes: 2473..2509), hits: 1) -> "revert Raffle_SendMoreToEnterRffle()"
+- Statement (location: (source ID: 40, lines: 87..88, bytes: 2473..2509), hits: 1) -> "revert Raffle_SendMoreToEnterRffle()"
+- Line (location: (source ID: 40, lines: 90..91, bytes: 2534..2566), hits: 5) -> "sRaffleState != RaffleState.OPEN"
+- Statement (location: (source ID: 40, lines: 90..91, bytes: 2534..2566), hits: 5) -> "sRaffleState != RaffleState.OPEN"
+- Branch (branch: 1, path: 0) (location: (source ID: 40, lines: 90..93, bytes: 2568..2624), hits: 1) -> "{\n            revert Raffle_RaffleIsNOtOpen();\n        }"
+- Line (location: (source ID: 40, lines: 91..92, bytes: 2582..2613), hits: 1) -> "revert Raffle_RaffleIsNOtOpen()"
+- Statement (location: (source ID: 40, lines: 91..92, bytes: 2582..2613), hits: 1) -> "revert Raffle_RaffleIsNOtOpen()"
+- Line (location: (source ID: 40, lines: 94..95, bytes: 2634..2668), hits: 4) -> "sPlayers.push(payable(msg.sender))"
+- Statement (location: (source ID: 40, lines: 94..95, bytes: 2634..2668), hits: 4) -> "sPlayers.push(payable(msg.sender))"
+- Line (location: (source ID: 40, lines: 96..97, bytes: 2679..2709), hits: 4) -> "emit RaffleEntered(msg.sender)"
+- Statement (location: (source ID: 40, lines: 96..97, bytes: 2679..2709), hits: 4) -> "emit RaffleEntered(msg.sender)"
+- Line (location: (source ID: 40, lines: 111..130, bytes: 3230..3785), hits: 2) -> "function checkUpKeep(\n        by...return (upKeepNeeded, \"\");\n    }"
+- Function "checkUpKeep" (location: (source ID: 40, lines: 111..130, bytes: 3230..3785), hits: 2) -> "function checkUpKeep(\n        by...return (upKeepNeeded, \"\");\n    }"
+- Line (location: (source ID: 40, lines: 121..122, bytes: 3439..3509), hits: 4) -> "bool timeHasPassed = ((block.tim... - sLastTimeStamp) > I_INTERVAL)"
+- Statement (location: (source ID: 40, lines: 121..122, bytes: 3439..3509), hits: 4) -> "bool timeHasPassed = ((block.tim... - sLastTimeStamp) > I_INTERVAL)"
+- Line (location: (source ID: 40, lines: 122..123, bytes: 3519..3567), hits: 4) -> "bool isOpen = (sRaffleState == RaffleState.OPEN)"
+- Statement (location: (source ID: 40, lines: 122..123, bytes: 3519..3567), hits: 4) -> "bool isOpen = (sRaffleState == RaffleState.OPEN)"
+- Line (location: (source ID: 40, lines: 123..124, bytes: 3577..3620), hits: 4) -> "bool hasBalance = address(this).balance > 0"
+- Statement (location: (source ID: 40, lines: 123..124, bytes: 3577..3620), hits: 4) -> "bool hasBalance = address(this).balance > 0"
+- Statement (location: (source ID: 40, lines: 123..124, bytes: 3595..3620), hits: 4) -> "address(this).balance > 0"
+- Line (location: (source ID: 40, lines: 124..125, bytes: 3630..3666), hits: 4) -> "bool hasPlayer = sPlayers.length > 0"
+- Statement (location: (source ID: 40, lines: 124..125, bytes: 3630..3666), hits: 4) -> "bool hasPlayer = sPlayers.length > 0"
+- Statement (location: (source ID: 40, lines: 124..125, bytes: 3647..3666), hits: 4) -> "sPlayers.length > 0"
+- Line (location: (source ID: 40, lines: 126..127, bytes: 3677..3742), hits: 4) -> "upKeepNeeded = timeHasPassed && ...sOpen && hasBalance && hasPlayer"
+- Statement (location: (source ID: 40, lines: 126..127, bytes: 3677..3742), hits: 4) -> "upKeepNeeded = timeHasPassed && ...sOpen && hasBalance && hasPlayer"
+- Line (location: (source ID: 40, lines: 128..129, bytes: 3753..3778), hits: 4) -> "return (upKeepNeeded, \"\")"
+- Statement (location: (source ID: 40, lines: 128..129, bytes: 3753..3778), hits: 4) -> "return (upKeepNeeded, \"\")"
+- Line (location: (source ID: 40, lines: 135..146, bytes: 3913..4232), hits: 2) -> "function performUpKeep(\n        ...  }\n        _pickWinner();\n    }"
+- Function "performUpKeep" (location: (source ID: 40, lines: 135..146, bytes: 3913..4232), hits: 2) -> "function performUpKeep(\n        ...  }\n        _pickWinner();\n    }"
+- Line (location: (source ID: 40, lines: 140..141, bytes: 4015..4053), hits: 2) -> "(bool upKeepNeeded,) = checkUpKeep(\"\")"
+- Statement (location: (source ID: 40, lines: 140..141, bytes: 4015..4053), hits: 2) -> "(bool upKeepNeeded,) = checkUpKeep(\"\")"
+- Statement (location: (source ID: 40, lines: 140..141, bytes: 4038..4053), hits: 2) -> "checkUpKeep(\"\")"
+- Line (location: (source ID: 40, lines: 141..142, bytes: 4067..4080), hits: 2) -> "!upKeepNeeded"
+- Statement (location: (source ID: 40, lines: 141..142, bytes: 4067..4080), hits: 2) -> "!upKeepNeeded"
+- Branch (branch: 2, path: 0) (location: (source ID: 40, lines: 141..144, bytes: 4082..4203), hits: 0) -> "{\n            revert Raffle_Cann...int256(sRaffleState));\n        }"
+- Line (location: (source ID: 40, lines: 142..143, bytes: 4096..4192), hits: 0) -> "revert Raffle_CannotPerformUpKee...s.length, uint256(sRaffleState))"
+- Statement (location: (source ID: 40, lines: 142..143, bytes: 4096..4192), hits: 0) -> "revert Raffle_CannotPerformUpKee...s.length, uint256(sRaffleState))"
+- Line (location: (source ID: 40, lines: 144..145, bytes: 4212..4225), hits: 2) -> "_pickWinner()"
+- Statement (location: (source ID: 40, lines: 144..145, bytes: 4212..4225), hits: 2) -> "_pickWinner()"
+- Line (location: (source ID: 40, lines: 149..168, bytes: 4275..5054), hits: 2) -> "function _pickWinner() internal ...questRandomWords(request);\n    }"
+- Function "_pickWinner" (location: (source ID: 40, lines: 149..168, bytes: 4275..5054), hits: 2) -> "function _pickWinner() internal ...questRandomWords(request);\n    }"
+- Line (location: (source ID: 40, lines: 150..151, bytes: 4321..4368), hits: 2) -> "(block.timestamp - sLastTimeStamp) < I_INTERVAL"
+- Statement (location: (source ID: 40, lines: 150..151, bytes: 4321..4368), hits: 2) -> "(block.timestamp - sLastTimeStamp) < I_INTERVAL"
+- Branch (branch: 3, path: 0) (location: (source ID: 40, lines: 150..153, bytes: 4370..4474), hits: 0) -> "{\n            revert Raffle_NotP...amp - sLastTimeStamp);\n        }"
+- Line (location: (source ID: 40, lines: 151..152, bytes: 4384..4463), hits: 0) -> "revert Raffle_NotPassedEnoughTim...lock.timestamp - sLastTimeStamp)"
+- Statement (location: (source ID: 40, lines: 151..152, bytes: 4384..4463), hits: 0) -> "revert Raffle_NotPassedEnoughTim...lock.timestamp - sLastTimeStamp)"
+- Line (location: (source ID: 40, lines: 154..155, bytes: 4484..4522), hits: 2) -> "sRaffleState = RaffleState.CALCULATING"
+- Statement (location: (source ID: 40, lines: 154..155, bytes: 4484..4522), hits: 2) -> "sRaffleState = RaffleState.CALCULATING"
+- Line (location: (source ID: 40, lines: 156..164, bytes: 4533..4958), hits: 2) -> "VRFV2PlusClient.RandomWordsReque...tivePayment: false}))\n        })"
+- Statement (location: (source ID: 40, lines: 156..164, bytes: 4533..4958), hits: 2) -> "VRFV2PlusClient.RandomWordsReque...tivePayment: false}))\n        })"
+- Statement (location: (source ID: 40, lines: 156..164, bytes: 4585..4958), hits: 2) -> "VRFV2PlusClient.RandomWordsReque...tivePayment: false}))\n        })"
+- Line (location: (source ID: 40, lines: 166..167, bytes: 5003..5047), hits: 2) -> "s_vrfCoordinator.requestRandomWords(request)"
+- Statement (location: (source ID: 40, lines: 166..167, bytes: 5003..5047), hits: 2) -> "s_vrfCoordinator.requestRandomWords(request)"
+- Line (location: (source ID: 40, lines: 170..187, bytes: 5097..5712), hits: 0) -> "function fulfillRandomWords(uint...PaymentFailed();\n        }\n    }"
+- Function "fulfillRandomWords" (location: (source ID: 40, lines: 170..187, bytes: 5097..5712), hits: 0) -> "function fulfillRandomWords(uint...PaymentFailed();\n        }\n    }"
+- Line (location: (source ID: 40, lines: 171..172, bytes: 5194..5250), hits: 0) -> "uint256 indexOfWinner = randomUints[0] % sPlayers.length"
+- Statement (location: (source ID: 40, lines: 171..172, bytes: 5194..5250), hits: 0) -> "uint256 indexOfWinner = randomUints[0] % sPlayers.length"
+- Statement (location: (source ID: 40, lines: 171..172, bytes: 5218..5250), hits: 0) -> "randomUints[0] % sPlayers.length"
+- Line (location: (source ID: 40, lines: 172..173, bytes: 5260..5308), hits: 0) -> "address payable winner = sPlayers[indexOfWinner]"
+- Statement (location: (source ID: 40, lines: 172..173, bytes: 5260..5308), hits: 0) -> "address payable winner = sPlayers[indexOfWinner]"
+- Line (location: (source ID: 40, lines: 173..174, bytes: 5318..5340), hits: 0) -> "sRecentWinner = winner"
+- Statement (location: (source ID: 40, lines: 173..174, bytes: 5318..5340), hits: 0) -> "sRecentWinner = winner"
+- Line (location: (source ID: 40, lines: 176..177, bytes: 5384..5415), hits: 0) -> "sRaffleState = RaffleState.OPEN"
+- Statement (location: (source ID: 40, lines: 176..177, bytes: 5384..5415), hits: 0) -> "sRaffleState = RaffleState.OPEN"
+- Line (location: (source ID: 40, lines: 177..178, bytes: 5425..5460), hits: 0) -> "sPlayers = new address payable[](0)"
+- Statement (location: (source ID: 40, lines: 177..178, bytes: 5425..5460), hits: 0) -> "sPlayers = new address payable[](0)"
+- Line (location: (source ID: 40, lines: 178..179, bytes: 5470..5502), hits: 0) -> "sLastTimeStamp = block.timestamp"
+- Statement (location: (source ID: 40, lines: 178..179, bytes: 5470..5502), hits: 0) -> "sLastTimeStamp = block.timestamp"
+- Line (location: (source ID: 40, lines: 180..181, bytes: 5513..5538), hits: 0) -> "emit WinnerPicked(winner)"
+- Statement (location: (source ID: 40, lines: 180..181, bytes: 5513..5538), hits: 0) -> "emit WinnerPicked(winner)"
+- Line (location: (source ID: 40, lines: 182..183, bytes: 5549..5617), hits: 0) -> "(bool isPaySuccess,) = winner.ca...alue: address(this).balance}(\"\")"
+- Statement (location: (source ID: 40, lines: 182..183, bytes: 5549..5617), hits: 0) -> "(bool isPaySuccess,) = winner.ca...alue: address(this).balance}(\"\")"
+- Statement (location: (source ID: 40, lines: 182..183, bytes: 5572..5617), hits: 0) -> "winner.call{value: address(this).balance}(\"\")"
+- Line (location: (source ID: 40, lines: 183..184, bytes: 5631..5644), hits: 0) -> "!isPaySuccess"
+- Statement (location: (source ID: 40, lines: 183..184, bytes: 5631..5644), hits: 0) -> "!isPaySuccess"
+- Branch (branch: 4, path: 0) (location: (source ID: 40, lines: 183..186, bytes: 5646..5706), hits: 0) -> "{\n            revert Raffle_WinnerPaymentFailed();\n        }"
+- Line (location: (source ID: 40, lines: 184..185, bytes: 5660..5695), hits: 0) -> "revert Raffle_WinnerPaymentFailed()"
+- Statement (location: (source ID: 40, lines: 184..185, bytes: 5660..5695), hits: 0) -> "revert Raffle_WinnerPaymentFailed()"
+- Line (location: (source ID: 40, lines: 190..193, bytes: 5746..5842), hits: 0) -> "function getEntranceFee() extern...    return I_ENTRANCE_FEE;\n    }"
+- Function "getEntranceFee" (location: (source ID: 40, lines: 190..193, bytes: 5746..5842), hits: 0) -> "function getEntranceFee() extern...    return I_ENTRANCE_FEE;\n    }"
+- Line (location: (source ID: 40, lines: 191..192, bytes: 5814..5835), hits: 0) -> "return I_ENTRANCE_FEE"
+- Statement (location: (source ID: 40, lines: 191..192, bytes: 5814..5835), hits: 0) -> "return I_ENTRANCE_FEE"
+- Line (location: (source ID: 40, lines: 194..197, bytes: 5848..5946), hits: 1) -> "function getRaffleState() extern...      return sRaffleState;\n    }"
+- Function "getRaffleState" (location: (source ID: 40, lines: 194..197, bytes: 5848..5946), hits: 1) -> "function getRaffleState() extern...      return sRaffleState;\n    }"
+- Line (location: (source ID: 40, lines: 195..196, bytes: 5920..5939), hits: 1) -> "return sRaffleState"
+- Statement (location: (source ID: 40, lines: 195..196, bytes: 5920..5939), hits: 1) -> "return sRaffleState"
+- Line (location: (source ID: 40, lines: 198..201, bytes: 5952..6073), hits: 1) -> "function getPlayer(uint256 index...n sPlayers[indexOfPlayer];\n    }"
+- Function "getPlayer" (location: (source ID: 40, lines: 198..201, bytes: 5952..6073), hits: 1) -> "function getPlayer(uint256 index...n sPlayers[indexOfPlayer];\n    }"
+- Line (location: (source ID: 40, lines: 199..200, bytes: 6036..6066), hits: 1) -> "return sPlayers[indexOfPlayer]"
+- Statement (location: (source ID: 40, lines: 199..200, bytes: 6036..6066), hits: 1) -> "return sPlayers[indexOfPlayer]"
+
+test/mocks/LinkToken.t.sol:
+- Line (location: (source ID: 41, lines: 15..18, bytes: 422..523), hits: 7) -> "constructor() ERC20(\"LinkToken\",...g.sender, INITIAL_SUPPLY);\n    }"
+- Function "constructor" (location: (source ID: 41, lines: 15..18, bytes: 422..523), hits: 7) -> "constructor() ERC20(\"LinkToken\",...g.sender, INITIAL_SUPPLY);\n    }"
+- Line (location: (source ID: 41, lines: 16..17, bytes: 483..516), hits: 7) -> "_mint(msg.sender, INITIAL_SUPPLY)"
+- Statement (location: (source ID: 41, lines: 16..17, bytes: 483..516), hits: 7) -> "_mint(msg.sender, INITIAL_SUPPLY)"
+- Line (location: (source ID: 41, lines: 19..22, bytes: 529..610), hits: 0) -> "function mint(address to, uint25...\n        _mint(to, value);\n    }"
+- Function "mint" (location: (source ID: 41, lines: 19..22, bytes: 529..610), hits: 0) -> "function mint(address to, uint25...\n        _mint(to, value);\n    }"
+- Line (location: (source ID: 41, lines: 20..21, bytes: 587..603), hits: 0) -> "_mint(to, value)"
+- Statement (location: (source ID: 41, lines: 20..21, bytes: 587..603), hits: 0) -> "_mint(to, value)"
+- Line (location: (source ID: 41, lines: 31..40, bytes: 995..1376), hits: 0) -> "function transferAndCall(address...    }\n        return true;\n    }"
+- Function "transferAndCall" (location: (source ID: 41, lines: 31..40, bytes: 995..1376), hits: 0) -> "function transferAndCall(address...    }\n        return true;\n    }"
+- Line (location: (source ID: 41, lines: 32..33, bytes: 1117..1144), hits: 0) -> "super.transfer(_to, _value)"
+- Statement (location: (source ID: 41, lines: 32..33, bytes: 1117..1144), hits: 0) -> "super.transfer(_to, _value)"
+- Line (location: (source ID: 41, lines: 34..35, bytes: 1212..1257), hits: 0) -> "emit Transfer(msg.sender, _to, _value, _data)"
+- Statement (location: (source ID: 41, lines: 34..35, bytes: 1212..1257), hits: 0) -> "emit Transfer(msg.sender, _to, _value, _data)"
+- Line (location: (source ID: 41, lines: 35..36, bytes: 1271..1286), hits: 0) -> "isContract(_to)"
+- Statement (location: (source ID: 41, lines: 35..36, bytes: 1271..1286), hits: 0) -> "isContract(_to)"
+- Branch (branch: 0, path: 0) (location: (source ID: 41, lines: 35..38, bytes: 1288..1349), hits: 0) -> "{\n            contractFallback(_to, _value, _data);\n        }"
+- Line (location: (source ID: 41, lines: 36..37, bytes: 1302..1338), hits: 0) -> "contractFallback(_to, _value, _data)"
+- Statement (location: (source ID: 41, lines: 36..37, bytes: 1302..1338), hits: 0) -> "contractFallback(_to, _value, _data)"
+- Line (location: (source ID: 41, lines: 38..39, bytes: 1358..1369), hits: 0) -> "return true"
+- Statement (location: (source ID: 41, lines: 38..39, bytes: 1358..1369), hits: 0) -> "return true"
+- Line (location: (source ID: 41, lines: 43..47, bytes: 1398..1604), hits: 0) -> "function contractFallback(addres...sg.sender, _value, _data);\n    }"
+- Function "contractFallback" (location: (source ID: 41, lines: 43..47, bytes: 1398..1604), hits: 0) -> "function contractFallback(addres...sg.sender, _value, _data);\n    }"
+- Line (location: (source ID: 41, lines: 44..45, bytes: 1491..1536), hits: 0) -> "ERC677Receiver receiver = ERC677Receiver(_to)"
+- Statement (location: (source ID: 41, lines: 44..45, bytes: 1491..1536), hits: 0) -> "ERC677Receiver receiver = ERC677Receiver(_to)"
+- Statement (location: (source ID: 41, lines: 44..45, bytes: 1517..1536), hits: 0) -> "ERC677Receiver(_to)"
+- Line (location: (source ID: 41, lines: 45..46, bytes: 1546..1597), hits: 0) -> "receiver.onTokenTransfer(msg.sender, _value, _data)"
+- Statement (location: (source ID: 41, lines: 45..46, bytes: 1546..1597), hits: 0) -> "receiver.onTokenTransfer(msg.sender, _value, _data)"
+- Line (location: (source ID: 41, lines: 48..55, bytes: 1610..1809), hits: 0) -> "function isContract(address _add...        return length > 0;\n    }"
+- Function "isContract" (location: (source ID: 41, lines: 48..55, bytes: 1610..1809), hits: 0) -> "function isContract(address _add...        return length > 0;\n    }"
+- Line (location: (source ID: 41, lines: 49..50, bytes: 1691..1705), hits: 0) -> "uint256 length"
+- Statement (location: (source ID: 41, lines: 49..50, bytes: 1691..1705), hits: 0) -> "uint256 length"
+- Line (location: (source ID: 41, lines: 51..52, bytes: 1738..1766), hits: 0) -> "length := extcodesize(_addr)"
+- Statement (location: (source ID: 41, lines: 51..52, bytes: 1738..1766), hits: 0) -> "length := extcodesize(_addr)"
+- Line (location: (source ID: 41, lines: 53..54, bytes: 1785..1802), hits: 0) -> "return length > 0"
+- Statement (location: (source ID: 41, lines: 53..54, bytes: 1785..1802), hits: 0) -> "return length > 0"
+- Statement (location: (source ID: 41, lines: 53..54, bytes: 1792..1802), hits: 0) -> "length > 0"
+
+Anchors for Contract "Raffle" (solc 0.8.30, source ID 40):
+- creation IC 6 -> Item 192: Line (location: (source ID: 40, lines: 69..84, bytes: 1910..2371), hits: 7)
+- creation IC 6 -> Item 193: Function "constructor" (location: (source ID: 40, lines: 69..84, bytes: 1910..2371), hits: 7)
+- creation IC 464 -> Item 194: Line (location: (source ID: 40, lines: 77..78, bytes: 2145..2173), hits: 7)
+- creation IC 464 -> Item 195: Statement (location: (source ID: 40, lines: 77..78, bytes: 2145..2173), hits: 7)
+- creation IC 472 -> Item 196: Line (location: (source ID: 40, lines: 78..79, bytes: 2183..2204), hits: 7)
+- creation IC 472 -> Item 197: Statement (location: (source ID: 40, lines: 78..79, bytes: 2183..2204), hits: 7)
+- creation IC 480 -> Item 198: Line (location: (source ID: 40, lines: 79..80, bytes: 2214..2238), hits: 7)
+- creation IC 480 -> Item 199: Statement (location: (source ID: 40, lines: 79..80, bytes: 2214..2238), hits: 7)
+- creation IC 488 -> Item 200: Line (location: (source ID: 40, lines: 80..81, bytes: 2248..2282), hits: 7)
+- creation IC 488 -> Item 201: Statement (location: (source ID: 40, lines: 80..81, bytes: 2248..2282), hits: 7)
+- creation IC 496 -> Item 202: Line (location: (source ID: 40, lines: 81..82, bytes: 2292..2323), hits: 7)
+- creation IC 496 -> Item 203: Statement (location: (source ID: 40, lines: 81..82, bytes: 2292..2323), hits: 7)
+- creation IC 517 -> Item 204: Line (location: (source ID: 40, lines: 82..83, bytes: 2333..2364), hits: 7)
+- creation IC 517 -> Item 205: Statement (location: (source ID: 40, lines: 82..83, bytes: 2333..2364), hits: 7)
+-  runtime IC 294 -> Item 206: Line (location: (source ID: 40, lines: 85..98, bytes: 2377..2716), hits: 6)
+-  runtime IC 294 -> Item 207: Function "enterRaffle" (location: (source ID: 40, lines: 85..98, bytes: 2377..2716), hits: 6)
+-  runtime IC 909 -> Item 208: Line (location: (source ID: 40, lines: 86..87, bytes: 2431..2457), hits: 6)
+-  runtime IC 909 -> Item 209: Statement (location: (source ID: 40, lines: 86..87, bytes: 2431..2457), hits: 6)
+-  runtime IC 949 -> Item 210: Branch (branch: 0, path: 0) (location: (source ID: 40, lines: 86..89, bytes: 2459..2520), hits: 1)
+-  runtime IC 949 -> Item 211: Line (location: (source ID: 40, lines: 87..88, bytes: 2473..2509), hits: 1)
+-  runtime IC 949 -> Item 212: Statement (location: (source ID: 40, lines: 87..88, bytes: 2473..2509), hits: 1)
+-  runtime IC 999 -> Item 213: Line (location: (source ID: 40, lines: 90..91, bytes: 2534..2566), hits: 5)
+-  runtime IC 999 -> Item 214: Statement (location: (source ID: 40, lines: 90..91, bytes: 2534..2566), hits: 5)
+-  runtime IC 1057 -> Item 215: Branch (branch: 1, path: 0) (location: (source ID: 40, lines: 90..93, bytes: 2568..2624), hits: 1)
+-  runtime IC 1057 -> Item 216: Line (location: (source ID: 40, lines: 91..92, bytes: 2582..2613), hits: 1)
+-  runtime IC 1057 -> Item 217: Statement (location: (source ID: 40, lines: 91..92, bytes: 2582..2613), hits: 1)
+-  runtime IC 1107 -> Item 218: Line (location: (source ID: 40, lines: 94..95, bytes: 2634..2668), hits: 4)
+-  runtime IC 1107 -> Item 219: Statement (location: (source ID: 40, lines: 94..95, bytes: 2634..2668), hits: 4)
+-  runtime IC 1203 -> Item 220: Line (location: (source ID: 40, lines: 96..97, bytes: 2679..2709), hits: 4)
+-  runtime IC 1203 -> Item 221: Statement (location: (source ID: 40, lines: 96..97, bytes: 2679..2709), hits: 4)
+-  runtime IC 304 -> Item 222: Line (location: (source ID: 40, lines: 111..130, bytes: 3230..3785), hits: 2)
+-  runtime IC 304 -> Item 223: Function "checkUpKeep" (location: (source ID: 40, lines: 111..130, bytes: 3230..3785), hits: 2)
+-  runtime IC 1275 -> Item 224: Line (location: (source ID: 40, lines: 121..122, bytes: 3439..3509), hits: 4)
+-  runtime IC 1275 -> Item 225: Statement (location: (source ID: 40, lines: 121..122, bytes: 3439..3509), hits: 4)
+-  runtime IC 1326 -> Item 226: Line (location: (source ID: 40, lines: 122..123, bytes: 3519..3567), hits: 4)
+-  runtime IC 1326 -> Item 227: Statement (location: (source ID: 40, lines: 122..123, bytes: 3519..3567), hits: 4)
+-  runtime IC 1383 -> Item 228: Line (location: (source ID: 40, lines: 123..124, bytes: 3577..3620), hits: 4)
+-  runtime IC 1383 -> Item 229: Statement (location: (source ID: 40, lines: 123..124, bytes: 3577..3620), hits: 4)
+-  runtime IC 1384 -> Item 230: Statement (location: (source ID: 40, lines: 123..124, bytes: 3595..3620), hits: 4)
+-  runtime IC 1389 -> Item 231: Line (location: (source ID: 40, lines: 124..125, bytes: 3630..3666), hits: 4)
+-  runtime IC 1389 -> Item 232: Statement (location: (source ID: 40, lines: 124..125, bytes: 3630..3666), hits: 4)
+-  runtime IC 1390 -> Item 233: Statement (location: (source ID: 40, lines: 124..125, bytes: 3647..3666), hits: 4)
+-  runtime IC 1400 -> Item 234: Line (location: (source ID: 40, lines: 126..127, bytes: 3677..3742), hits: 4)
+-  runtime IC 1400 -> Item 235: Statement (location: (source ID: 40, lines: 126..127, bytes: 3677..3742), hits: 4)
+-  runtime IC 1430 -> Item 236: Line (location: (source ID: 40, lines: 128..129, bytes: 3753..3778), hits: 4)
+-  runtime IC 1430 -> Item 237: Statement (location: (source ID: 40, lines: 128..129, bytes: 3753..3778), hits: 4)
+-  runtime IC 365 -> Item 238: Line (location: (source ID: 40, lines: 135..146, bytes: 3913..4232), hits: 2)
+-  runtime IC 365 -> Item 239: Function "performUpKeep" (location: (source ID: 40, lines: 135..146, bytes: 3913..4232), hits: 2)
+-  runtime IC 1459 -> Item 240: Line (location: (source ID: 40, lines: 140..141, bytes: 4015..4053), hits: 2)
+-  runtime IC 1459 -> Item 241: Statement (location: (source ID: 40, lines: 140..141, bytes: 4015..4053), hits: 2)
+-  runtime IC 1460 -> Item 242: Statement (location: (source ID: 40, lines: 140..141, bytes: 4038..4053), hits: 2)
+-  runtime IC 1486 -> Item 243: Line (location: (source ID: 40, lines: 141..142, bytes: 4067..4080), hits: 2)
+-  runtime IC 1486 -> Item 244: Statement (location: (source ID: 40, lines: 141..142, bytes: 4067..4080), hits: 2)
+-  runtime IC 1491 -> Item 245: Branch (branch: 2, path: 0) (location: (source ID: 40, lines: 141..144, bytes: 4082..4203), hits: 0)
+-  runtime IC 1491 -> Item 246: Line (location: (source ID: 40, lines: 142..143, bytes: 4096..4192), hits: 0)
+-  runtime IC 1491 -> Item 247: Statement (location: (source ID: 40, lines: 142..143, bytes: 4096..4192), hits: 0)
+-  runtime IC 1594 -> Item 248: Line (location: (source ID: 40, lines: 144..145, bytes: 4212..4225), hits: 2)
+-  runtime IC 1594 -> Item 249: Statement (location: (source ID: 40, lines: 144..145, bytes: 4212..4225), hits: 2)
+-  runtime IC 3196 -> Item 250: Line (location: (source ID: 40, lines: 149..168, bytes: 4275..5054), hits: 2)
+-  runtime IC 3196 -> Item 251: Function "_pickWinner" (location: (source ID: 40, lines: 149..168, bytes: 4275..5054), hits: 2)
+-  runtime IC 3197 -> Item 252: Line (location: (source ID: 40, lines: 150..151, bytes: 4321..4368), hits: 2)
+-  runtime IC 3197 -> Item 253: Statement (location: (source ID: 40, lines: 150..151, bytes: 4321..4368), hits: 2)
+-  runtime IC 3250 -> Item 254: Branch (branch: 3, path: 0) (location: (source ID: 40, lines: 150..153, bytes: 4370..4474), hits: 0)
+-  runtime IC 3250 -> Item 255: Line (location: (source ID: 40, lines: 151..152, bytes: 4384..4463), hits: 0)
+-  runtime IC 3250 -> Item 256: Statement (location: (source ID: 40, lines: 151..152, bytes: 4384..4463), hits: 0)
+-  runtime IC 3324 -> Item 257: Line (location: (source ID: 40, lines: 154..155, bytes: 4484..4522), hits: 2)
+-  runtime IC 3324 -> Item 258: Statement (location: (source ID: 40, lines: 154..155, bytes: 4484..4522), hits: 2)
+-  runtime IC 3367 -> Item 259: Line (location: (source ID: 40, lines: 156..164, bytes: 4533..4958), hits: 2)
+-  runtime IC 3367 -> Item 260: Statement (location: (source ID: 40, lines: 156..164, bytes: 4533..4958), hits: 2)
+-  runtime IC 3368 -> Item 261: Statement (location: (source ID: 40, lines: 156..164, bytes: 4585..4958), hits: 2)
+-  runtime IC 3553 -> Item 262: Line (location: (source ID: 40, lines: 166..167, bytes: 5003..5047), hits: 2)
+-  runtime IC 3553 -> Item 263: Statement (location: (source ID: 40, lines: 166..167, bytes: 5003..5047), hits: 2)
+-  runtime IC 2646 -> Item 264: Line (location: (source ID: 40, lines: 170..187, bytes: 5097..5712), hits: 0)
+-  runtime IC 2646 -> Item 265: Function "fulfillRandomWords" (location: (source ID: 40, lines: 170..187, bytes: 5097..5712), hits: 0)
+-  runtime IC 2647 -> Item 266: Line (location: (source ID: 40, lines: 171..172, bytes: 5194..5250), hits: 0)
+-  runtime IC 2647 -> Item 267: Statement (location: (source ID: 40, lines: 171..172, bytes: 5194..5250), hits: 0)
+-  runtime IC 2648 -> Item 268: Statement (location: (source ID: 40, lines: 171..172, bytes: 5218..5250), hits: 0)
+-  runtime IC 2692 -> Item 269: Line (location: (source ID: 40, lines: 172..173, bytes: 5260..5308), hits: 0)
+-  runtime IC 2692 -> Item 270: Statement (location: (source ID: 40, lines: 172..173, bytes: 5260..5308), hits: 0)
+-  runtime IC 2755 -> Item 271: Line (location: (source ID: 40, lines: 173..174, bytes: 5318..5340), hits: 0)
+-  runtime IC 2755 -> Item 272: Statement (location: (source ID: 40, lines: 173..174, bytes: 5318..5340), hits: 0)
+-  runtime IC 2819 -> Item 273: Line (location: (source ID: 40, lines: 176..177, bytes: 5384..5415), hits: 0)
+-  runtime IC 2819 -> Item 274: Statement (location: (source ID: 40, lines: 176..177, bytes: 5384..5415), hits: 0)
+-  runtime IC 2861 -> Item 275: Line (location: (source ID: 40, lines: 177..178, bytes: 5425..5460), hits: 0)
+-  runtime IC 2861 -> Item 276: Statement (location: (source ID: 40, lines: 177..178, bytes: 5425..5460), hits: 0)
+-  runtime IC 2956 -> Item 277: Line (location: (source ID: 40, lines: 178..179, bytes: 5470..5502), hits: 0)
+-  runtime IC 2956 -> Item 278: Statement (location: (source ID: 40, lines: 178..179, bytes: 5470..5502), hits: 0)
+-  runtime IC 2963 -> Item 279: Line (location: (source ID: 40, lines: 180..181, bytes: 5513..5538), hits: 0)
+-  runtime IC 2963 -> Item 280: Statement (location: (source ID: 40, lines: 180..181, bytes: 5513..5538), hits: 0)
+-  runtime IC 3030 -> Item 281: Line (location: (source ID: 40, lines: 182..183, bytes: 5549..5617), hits: 0)
+-  runtime IC 3030 -> Item 282: Statement (location: (source ID: 40, lines: 182..183, bytes: 5549..5617), hits: 0)
+-  runtime IC 3031 -> Item 283: Statement (location: (source ID: 40, lines: 182..183, bytes: 5572..5617), hits: 0)
+-  runtime IC 3134 -> Item 284: Line (location: (source ID: 40, lines: 183..184, bytes: 5631..5644), hits: 0)
+-  runtime IC 3134 -> Item 285: Statement (location: (source ID: 40, lines: 183..184, bytes: 5631..5644), hits: 0)
+-  runtime IC 3139 -> Item 286: Branch (branch: 4, path: 0) (location: (source ID: 40, lines: 183..186, bytes: 5646..5706), hits: 0)
+-  runtime IC 3139 -> Item 287: Line (location: (source ID: 40, lines: 184..185, bytes: 5660..5695), hits: 0)
+-  runtime IC 3139 -> Item 288: Statement (location: (source ID: 40, lines: 184..185, bytes: 5660..5695), hits: 0)
+-  runtime IC 170 -> Item 289: Line (location: (source ID: 40, lines: 190..193, bytes: 5746..5842), hits: 0)
+-  runtime IC 170 -> Item 290: Function "getEntranceFee" (location: (source ID: 40, lines: 190..193, bytes: 5746..5842), hits: 0)
+-  runtime IC 653 -> Item 291: Line (location: (source ID: 40, lines: 191..192, bytes: 5814..5835), hits: 0)
+-  runtime IC 653 -> Item 292: Statement (location: (source ID: 40, lines: 191..192, bytes: 5814..5835), hits: 0)
+-  runtime IC 212 -> Item 293: Line (location: (source ID: 40, lines: 194..197, bytes: 5848..5946), hits: 1)
+-  runtime IC 212 -> Item 294: Function "getRaffleState" (location: (source ID: 40, lines: 194..197, bytes: 5848..5946), hits: 1)
+-  runtime IC 692 -> Item 295: Line (location: (source ID: 40, lines: 195..196, bytes: 5920..5939), hits: 1)
+-  runtime IC 692 -> Item 296: Statement (location: (source ID: 40, lines: 195..196, bytes: 5920..5939), hits: 1)
+-  runtime IC 551 -> Item 297: Line (location: (source ID: 40, lines: 198..201, bytes: 5952..6073), hits: 1)
+-  runtime IC 551 -> Item 298: Function "getPlayer" (location: (source ID: 40, lines: 198..201, bytes: 5952..6073), hits: 1)
+-  runtime IC 2560 -> Item 299: Line (location: (source ID: 40, lines: 199..200, bytes: 6036..6066), hits: 1)
+-  runtime IC 2560 -> Item 300: Statement (location: (source ID: 40, lines: 199..200, bytes: 6036..6066), hits: 1)
+
+Anchors for Contract "LinkToken" (solc 0.8.30, source ID 41):
+- creation IC 5 -> Item 301: Line (location: (source ID: 41, lines: 15..18, bytes: 422..523), hits: 7)
+- creation IC 5 -> Item 302: Function "constructor" (location: (source ID: 41, lines: 15..18, bytes: 422..523), hits: 7)
+- creation IC 204 -> Item 303: Line (location: (source ID: 41, lines: 16..17, bytes: 483..516), hits: 7)
+- creation IC 204 -> Item 304: Statement (location: (source ID: 41, lines: 16..17, bytes: 483..516), hits: 7)
+-  runtime IC 500 -> Item 305: Line (location: (source ID: 41, lines: 19..22, bytes: 529..610), hits: 0)
+-  runtime IC 500 -> Item 306: Function "mint" (location: (source ID: 41, lines: 19..22, bytes: 529..610), hits: 0)
+-  runtime IC 2012 -> Item 307: Line (location: (source ID: 41, lines: 20..21, bytes: 587..603), hits: 0)
+-  runtime IC 2012 -> Item 308: Statement (location: (source ID: 41, lines: 20..21, bytes: 587..603), hits: 0)
+-  runtime IC 452 -> Item 309: Line (location: (source ID: 41, lines: 31..40, bytes: 995..1376), hits: 0)
+-  runtime IC 452 -> Item 310: Function "transferAndCall" (location: (source ID: 41, lines: 31..40, bytes: 995..1376), hits: 0)
+-  runtime IC 1861 -> Item 311: Line (location: (source ID: 41, lines: 32..33, bytes: 1117..1144), hits: 0)
+-  runtime IC 1861 -> Item 312: Statement (location: (source ID: 41, lines: 32..33, bytes: 1117..1144), hits: 0)
+-  runtime IC 1872 -> Item 313: Line (location: (source ID: 41, lines: 34..35, bytes: 1212..1257), hits: 0)
+-  runtime IC 1872 -> Item 314: Statement (location: (source ID: 41, lines: 34..35, bytes: 1212..1257), hits: 0)
+-  runtime IC 1975 -> Item 315: Line (location: (source ID: 41, lines: 35..36, bytes: 1271..1286), hits: 0)
+-  runtime IC 1975 -> Item 316: Statement (location: (source ID: 41, lines: 35..36, bytes: 1271..1286), hits: 0)
+-  runtime IC 1989 -> Item 317: Branch (branch: 0, path: 0) (location: (source ID: 41, lines: 35..38, bytes: 1288..1349), hits: 0)
+-  runtime IC 1989 -> Item 318: Line (location: (source ID: 41, lines: 36..37, bytes: 1302..1338), hits: 0)
+-  runtime IC 1989 -> Item 319: Statement (location: (source ID: 41, lines: 36..37, bytes: 1302..1338), hits: 0)
+-  runtime IC 2001 -> Item 320: Line (location: (source ID: 41, lines: 38..39, bytes: 1358..1369), hits: 0)
+-  runtime IC 2001 -> Item 321: Statement (location: (source ID: 41, lines: 38..39, bytes: 1358..1369), hits: 0)
+-  runtime IC 3412 -> Item 322: Line (location: (source ID: 41, lines: 43..47, bytes: 1398..1604), hits: 0)
+-  runtime IC 3412 -> Item 323: Function "contractFallback" (location: (source ID: 41, lines: 43..47, bytes: 1398..1604), hits: 0)
+-  runtime IC 3413 -> Item 324: Line (location: (source ID: 41, lines: 44..45, bytes: 1491..1536), hits: 0)
+-  runtime IC 3413 -> Item 325: Statement (location: (source ID: 41, lines: 44..45, bytes: 1491..1536), hits: 0)
+-  runtime IC 3414 -> Item 326: Statement (location: (source ID: 41, lines: 44..45, bytes: 1517..1536), hits: 0)
+-  runtime IC 3417 -> Item 327: Line (location: (source ID: 41, lines: 45..46, bytes: 1546..1597), hits: 0)
+-  runtime IC 3417 -> Item 328: Statement (location: (source ID: 41, lines: 45..46, bytes: 1546..1597), hits: 0)
+-  runtime IC 3395 -> Item 329: Line (location: (source ID: 41, lines: 48..55, bytes: 1610..1809), hits: 0)
+-  runtime IC 3395 -> Item 330: Function "isContract" (location: (source ID: 41, lines: 48..55, bytes: 1610..1809), hits: 0)
+-  runtime IC 3397 -> Item 331: Line (location: (source ID: 41, lines: 49..50, bytes: 1691..1705), hits: 0)
+-  runtime IC 3397 -> Item 332: Statement (location: (source ID: 41, lines: 49..50, bytes: 1691..1705), hits: 0)
+-  runtime IC 3398 -> Item 333: Line (location: (source ID: 41, lines: 51..52, bytes: 1738..1766), hits: 0)
+-  runtime IC 3398 -> Item 334: Statement (location: (source ID: 41, lines: 51..52, bytes: 1738..1766), hits: 0)
+-  runtime IC 3402 -> Item 335: Line (location: (source ID: 41, lines: 53..54, bytes: 1785..1802), hits: 0)
+-  runtime IC 3402 -> Item 336: Statement (location: (source ID: 41, lines: 53..54, bytes: 1785..1802), hits: 0)
+-  runtime IC 3402 -> Item 337: Statement (location: (source ID: 41, lines: 53..54, bytes: 1792..1802), hits: 0)
+
+Anchors for Contract "AddConsumer" (solc 0.8.30, source ID 39):
+-  runtime IC 106 -> Item 160: Line (location: (source ID: 39, lines: 70..77, bytes: 2668..3002), hits: 0)
+-  runtime IC 106 -> Item 161: Function "addConsumerUsingConfig" (location: (source ID: 39, lines: 70..77, bytes: 2668..3002), hits: 0)
+-  runtime IC 695 -> Item 162: Line (location: (source ID: 39, lines: 71..72, bytes: 2745..2791), hits: 0)
+-  runtime IC 695 -> Item 163: Statement (location: (source ID: 39, lines: 71..72, bytes: 2745..2791), hits: 0)
+-  runtime IC 696 -> Item 164: Statement (location: (source ID: 39, lines: 71..72, bytes: 2773..2791), hits: 0)
+-  runtime IC 736 -> Item 165: Line (location: (source ID: 39, lines: 72..73, bytes: 2801..2856), hits: 0)
+-  runtime IC 736 -> Item 166: Statement (location: (source ID: 39, lines: 72..73, bytes: 2801..2856), hits: 0)
+-  runtime IC 852 -> Item 167: Line (location: (source ID: 39, lines: 73..74, bytes: 2866..2930), hits: 0)
+-  runtime IC 852 -> Item 168: Statement (location: (source ID: 39, lines: 73..74, bytes: 2866..2930), hits: 0)
+-  runtime IC 968 -> Item 169: Line (location: (source ID: 39, lines: 75..76, bytes: 2941..2995), hits: 0)
+-  runtime IC 968 -> Item 170: Statement (location: (source ID: 39, lines: 75..76, bytes: 2941..2995), hits: 0)
+-  runtime IC 78 -> Item 171: Line (location: (source ID: 39, lines: 78..87, bytes: 3008..3424), hits: 7)
+-  runtime IC 78 -> Item 172: Function "addConsumer" (location: (source ID: 39, lines: 78..87, bytes: 3008..3424), hits: 7)
+-  runtime IC 175 -> Item 173: Line (location: (source ID: 39, lines: 79..80, bytes: 3111..3162), hits: 7)
+-  runtime IC 175 -> Item 174: Statement (location: (source ID: 39, lines: 79..80, bytes: 3111..3162), hits: 7)
+-  runtime IC 238 -> Item 175: Line (location: (source ID: 39, lines: 80..81, bytes: 3172..3220), hits: 7)
+-  runtime IC 238 -> Item 176: Statement (location: (source ID: 39, lines: 80..81, bytes: 3172..3220), hits: 7)
+-  runtime IC 301 -> Item 177: Line (location: (source ID: 39, lines: 81..82, bytes: 3230..3274), hits: 7)
+-  runtime IC 301 -> Item 178: Statement (location: (source ID: 39, lines: 81..82, bytes: 3230..3274), hits: 7)
+-  runtime IC 385 -> Item 179: Line (location: (source ID: 39, lines: 83..84, bytes: 3285..3304), hits: 7)
+-  runtime IC 385 -> Item 180: Statement (location: (source ID: 39, lines: 83..84, bytes: 3285..3304), hits: 7)
+-  runtime IC 475 -> Item 181: Line (location: (source ID: 39, lines: 84..85, bytes: 3314..3389), hits: 7)
+-  runtime IC 475 -> Item 182: Statement (location: (source ID: 39, lines: 84..85, bytes: 3314..3389), hits: 7)
+-  runtime IC 600 -> Item 183: Line (location: (source ID: 39, lines: 85..86, bytes: 3399..3417), hits: 7)
+-  runtime IC 600 -> Item 184: Statement (location: (source ID: 39, lines: 85..86, bytes: 3399..3417), hits: 7)
+-  runtime IC 134 -> Item 185: Line (location: (source ID: 39, lines: 88..92, bytes: 3430..3627), hits: 0)
+-  runtime IC 134 -> Item 186: Function "run.2" (location: (source ID: 39, lines: 88..92, bytes: 3430..3627), hits: 0)
+-  runtime IC 985 -> Item 187: Line (location: (source ID: 39, lines: 89..90, bytes: 3464..3562), hits: 0)
+-  runtime IC 985 -> Item 188: Statement (location: (source ID: 39, lines: 89..90, bytes: 3464..3562), hits: 0)
+-  runtime IC 986 -> Item 189: Statement (location: (source ID: 39, lines: 89..90, bytes: 3499..3562), hits: 0)
+-  runtime IC 1051 -> Item 190: Line (location: (source ID: 39, lines: 90..91, bytes: 3572..3620), hits: 0)
+-  runtime IC 1051 -> Item 191: Statement (location: (source ID: 39, lines: 90..91, bytes: 3572..3620), hits: 0)
+
+Anchors for Contract "HelperConfig" (solc 0.8.30, source ID 38):
+- creation IC 58 -> Item 37: Line (location: (source ID: 38, lines: 33..37, bytes: 1030..1195), hits: 7)
+- creation IC 58 -> Item 38: Function "constructor" (location: (source ID: 38, lines: 33..37, bytes: 1030..1195), hits: 7)
+- creation IC 70 -> Item 39: Line (location: (source ID: 38, lines: 34..35, bytes: 1054..1118), hits: 7)
+- creation IC 70 -> Item 40: Statement (location: (source ID: 38, lines: 34..35, bytes: 1054..1118), hits: 7)
+- creation IC 323 -> Item 41: Line (location: (source ID: 38, lines: 35..36, bytes: 1128..1188), hits: 7)
+- creation IC 323 -> Item 42: Statement (location: (source ID: 38, lines: 35..36, bytes: 1128..1188), hits: 7)
+- creation IC 579 -> Item 64: Line (location: (source ID: 38, lines: 52..63, bytes: 1714..2328), hits: 7)
+- creation IC 579 -> Item 65: Function "getSepoliaNetworkConfig" (location: (source ID: 38, lines: 52..63, bytes: 1714..2328), hits: 7)
+- creation IC 588 -> Item 66: Line (location: (source ID: 38, lines: 53..62, bytes: 1802..2321), hits: 7)
+- creation IC 588 -> Item 67: Statement (location: (source ID: 38, lines: 53..62, bytes: 1802..2321), hits: 7)
+- creation IC 810 -> Item 68: Line (location: (source ID: 38, lines: 64..88, bytes: 2334..3294), hits: 7)
+- creation IC 810 -> Item 69: Function "getOrCreateAnvilEthConfig" (location: (source ID: 38, lines: 64..88, bytes: 2334..3294), hits: 7)
+- creation IC 819 -> Item 70: Line (location: (source ID: 38, lines: 65..66, bytes: 2423..2470), hits: 7)
+- creation IC 819 -> Item 71: Statement (location: (source ID: 38, lines: 65..66, bytes: 2423..2470), hits: 7)
+- creation IC 906 -> Item 72: Branch (branch: 2, path: 0) (location: (source ID: 38, lines: 65..68, bytes: 2472..2522), hits: 0)
+- creation IC 906 -> Item 73: Line (location: (source ID: 38, lines: 66..67, bytes: 2486..2511), hits: 0)
+- creation IC 906 -> Item 74: Statement (location: (source ID: 38, lines: 66..67, bytes: 2486..2511), hits: 0)
+- creation IC 1193 -> Item 75: Line (location: (source ID: 38, lines: 70..71, bytes: 2616..2635), hits: 7)
+- creation IC 1193 -> Item 76: Statement (location: (source ID: 38, lines: 70..71, bytes: 2616..2635), hits: 7)
+- creation IC 1283 -> Item 77: Line (location: (source ID: 38, lines: 71..73, bytes: 2645..2787), hits: 7)
+- creation IC 1283 -> Item 78: Statement (location: (source ID: 38, lines: 71..73, bytes: 2645..2787), hits: 7)
+- creation IC 1306 -> Item 79: Line (location: (source ID: 38, lines: 72..73, bytes: 2701..2787), hits: 7)
+- creation IC 1306 -> Item 80: Statement (location: (source ID: 38, lines: 72..73, bytes: 2701..2787), hits: 7)
+- creation IC 1358 -> Item 81: Line (location: (source ID: 38, lines: 74..75, bytes: 2798..2835), hits: 7)
+- creation IC 1358 -> Item 82: Statement (location: (source ID: 38, lines: 74..75, bytes: 2798..2835), hits: 7)
+- creation IC 1359 -> Item 83: Statement (location: (source ID: 38, lines: 74..75, bytes: 2820..2835), hits: 7)
+- creation IC 1420 -> Item 84: Line (location: (source ID: 38, lines: 76..77, bytes: 2846..2864), hits: 7)
+- creation IC 1420 -> Item 85: Statement (location: (source ID: 38, lines: 76..77, bytes: 2846..2864), hits: 7)
+- creation IC 1510 -> Item 86: Line (location: (source ID: 38, lines: 78..87, bytes: 2875..3287), hits: 7)
+- creation IC 1510 -> Item 87: Statement (location: (source ID: 38, lines: 78..87, bytes: 2875..3287), hits: 7)
+-  runtime IC 212 -> Item 43: Line (location: (source ID: 38, lines: 38..47, bytes: 1201..1583), hits: 0)
+-  runtime IC 212 -> Item 44: Function "getConfigByChainId" (location: (source ID: 38, lines: 38..47, bytes: 1201..1583), hits: 0)
+-  runtime IC 1452 -> Item 45: Line (location: (source ID: 38, lines: 39..40, bytes: 1298..1350), hits: 0)
+-  runtime IC 1452 -> Item 46: Statement (location: (source ID: 38, lines: 39..40, bytes: 1298..1350), hits: 0)
+-  runtime IC 1554 -> Item 47: Branch (branch: 0, path: 0) (location: (source ID: 38, lines: 39..42, bytes: 1352..1407), hits: 0)
+-  runtime IC 1858 -> Item 48: Branch (branch: 0, path: 1) (location: (source ID: 38, lines: 39..46, bytes: 1294..1577), hits: 0)
+-  runtime IC 1554 -> Item 49: Line (location: (source ID: 38, lines: 40..41, bytes: 1366..1396), hits: 0)
+-  runtime IC 1554 -> Item 50: Statement (location: (source ID: 38, lines: 40..41, bytes: 1366..1396), hits: 0)
+-  runtime IC 1838 -> Item 51: Line (location: (source ID: 38, lines: 41..42, bytes: 1417..1442), hits: 0)
+-  runtime IC 1838 -> Item 52: Statement (location: (source ID: 38, lines: 41..42, bytes: 1417..1442), hits: 0)
+-  runtime IC 1844 -> Item 53: Branch (branch: 1, path: 0) (location: (source ID: 38, lines: 41..44, bytes: 1444..1503), hits: 0)
+-  runtime IC 1858 -> Item 54: Branch (branch: 1, path: 1) (location: (source ID: 38, lines: 41..46, bytes: 1413..1577), hits: 0)
+-  runtime IC 1844 -> Item 55: Line (location: (source ID: 38, lines: 42..43, bytes: 1458..1492), hits: 0)
+-  runtime IC 1844 -> Item 56: Statement (location: (source ID: 38, lines: 42..43, bytes: 1458..1492), hits: 0)
+-  runtime IC 1844 -> Item 57: Statement (location: (source ID: 38, lines: 42..43, bytes: 1465..1492), hits: 0)
+-  runtime IC 1859 -> Item 58: Line (location: (source ID: 38, lines: 44..45, bytes: 1523..1566), hits: 0)
+-  runtime IC 1859 -> Item 59: Statement (location: (source ID: 38, lines: 44..45, bytes: 1523..1566), hits: 0)
+-  runtime IC 500 -> Item 60: Line (location: (source ID: 38, lines: 48..51, bytes: 1589..1708), hits: 14)
+-  runtime IC 500 -> Item 61: Function "getConfig" (location: (source ID: 38, lines: 48..51, bytes: 1589..1708), hits: 14)
+-  runtime IC 2459 -> Item 62: Line (location: (source ID: 38, lines: 49..50, bytes: 1665..1701), hits: 14)
+-  runtime IC 2459 -> Item 63: Statement (location: (source ID: 38, lines: 49..50, bytes: 1665..1701), hits: 14)
+-  runtime IC 260 -> Item 64: Line (location: (source ID: 38, lines: 52..63, bytes: 1714..2328), hits: 7)
+-  runtime IC 260 -> Item 65: Function "getSepoliaNetworkConfig" (location: (source ID: 38, lines: 52..63, bytes: 1714..2328), hits: 7)
+-  runtime IC 1933 -> Item 66: Line (location: (source ID: 38, lines: 53..62, bytes: 1802..2321), hits: 7)
+-  runtime IC 1933 -> Item 67: Statement (location: (source ID: 38, lines: 53..62, bytes: 1802..2321), hits: 7)
+-  runtime IC 182 -> Item 68: Line (location: (source ID: 38, lines: 64..88, bytes: 2334..3294), hits: 7)
+-  runtime IC 182 -> Item 69: Function "getOrCreateAnvilEthConfig" (location: (source ID: 38, lines: 64..88, bytes: 2334..3294), hits: 7)
+-  runtime IC 599 -> Item 70: Line (location: (source ID: 38, lines: 65..66, bytes: 2423..2470), hits: 7)
+-  runtime IC 599 -> Item 71: Statement (location: (source ID: 38, lines: 65..66, bytes: 2423..2470), hits: 7)
+-  runtime IC 686 -> Item 72: Branch (branch: 2, path: 0) (location: (source ID: 38, lines: 65..68, bytes: 2472..2522), hits: 0)
+-  runtime IC 686 -> Item 73: Line (location: (source ID: 38, lines: 66..67, bytes: 2486..2511), hits: 0)
+-  runtime IC 686 -> Item 74: Statement (location: (source ID: 38, lines: 66..67, bytes: 2486..2511), hits: 0)
+-  runtime IC 973 -> Item 75: Line (location: (source ID: 38, lines: 70..71, bytes: 2616..2635), hits: 7)
+-  runtime IC 973 -> Item 76: Statement (location: (source ID: 38, lines: 70..71, bytes: 2616..2635), hits: 7)
+-  runtime IC 1063 -> Item 77: Line (location: (source ID: 38, lines: 71..73, bytes: 2645..2787), hits: 7)
+-  runtime IC 1063 -> Item 78: Statement (location: (source ID: 38, lines: 71..73, bytes: 2645..2787), hits: 7)
+-  runtime IC 1086 -> Item 79: Line (location: (source ID: 38, lines: 72..73, bytes: 2701..2787), hits: 7)
+-  runtime IC 1086 -> Item 80: Statement (location: (source ID: 38, lines: 72..73, bytes: 2701..2787), hits: 7)
+-  runtime IC 1138 -> Item 81: Line (location: (source ID: 38, lines: 74..75, bytes: 2798..2835), hits: 7)
+-  runtime IC 1138 -> Item 82: Statement (location: (source ID: 38, lines: 74..75, bytes: 2798..2835), hits: 7)
+-  runtime IC 1139 -> Item 83: Statement (location: (source ID: 38, lines: 74..75, bytes: 2820..2835), hits: 7)
+-  runtime IC 1200 -> Item 84: Line (location: (source ID: 38, lines: 76..77, bytes: 2846..2864), hits: 7)
+-  runtime IC 1200 -> Item 85: Statement (location: (source ID: 38, lines: 76..77, bytes: 2846..2864), hits: 7)
+-  runtime IC 1290 -> Item 86: Line (location: (source ID: 38, lines: 78..87, bytes: 2875..3287), hits: 7)
+-  runtime IC 1290 -> Item 87: Statement (location: (source ID: 38, lines: 78..87, bytes: 2875..3287), hits: 7)
+
+Anchors for Contract "DeployRaffle" (solc 0.8.30, source ID 37):
+-  runtime IC 67 -> Item 0: Line (location: (source ID: 37, lines: 10..42, bytes: 338..1515), hits: 7)
+-  runtime IC 67 -> Item 1: Function "deployContract" (location: (source ID: 37, lines: 10..42, bytes: 338..1515), hits: 7)
+-  runtime IC 141 -> Item 2: Line (location: (source ID: 37, lines: 11..12, bytes: 412..458), hits: 7)
+-  runtime IC 141 -> Item 3: Statement (location: (source ID: 37, lines: 11..12, bytes: 412..458), hits: 7)
+-  runtime IC 142 -> Item 4: Statement (location: (source ID: 37, lines: 11..12, bytes: 440..458), hits: 7)
+-  runtime IC 182 -> Item 5: Line (location: (source ID: 37, lines: 12..13, bytes: 468..535), hits: 7)
+-  runtime IC 182 -> Item 6: Statement (location: (source ID: 37, lines: 12..13, bytes: 468..535), hits: 7)
+-  runtime IC 183 -> Item 7: Statement (location: (source ID: 37, lines: 12..13, bytes: 511..535), hits: 7)
+-  runtime IC 294 -> Item 8: Line (location: (source ID: 37, lines: 14..15, bytes: 550..576), hits: 7)
+-  runtime IC 294 -> Item 9: Statement (location: (source ID: 37, lines: 14..15, bytes: 550..576), hits: 7)
+-  runtime IC 305 -> Item 10: Branch (branch: 0, path: 0) (location: (source ID: 37, lines: 14..24, bytes: 578..1011), hits: 7)
+-  runtime IC 305 -> Item 11: Line (location: (source ID: 37, lines: 15..16, bytes: 592..657), hits: 7)
+-  runtime IC 305 -> Item 12: Statement (location: (source ID: 37, lines: 15..16, bytes: 592..657), hits: 7)
+-  runtime IC 306 -> Item 13: Statement (location: (source ID: 37, lines: 15..16, bytes: 633..657), hits: 7)
+-  runtime IC 346 -> Item 14: Line (location: (source ID: 37, lines: 16..18, bytes: 671..797), hits: 7)
+-  runtime IC 346 -> Item 15: Statement (location: (source ID: 37, lines: 16..18, bytes: 671..797), hits: 7)
+-  runtime IC 532 -> Item 16: Line (location: (source ID: 37, lines: 20..21, bytes: 835..893), hits: 7)
+-  runtime IC 532 -> Item 17: Statement (location: (source ID: 37, lines: 20..21, bytes: 835..893), hits: 7)
+-  runtime IC 533 -> Item 18: Statement (location: (source ID: 37, lines: 20..21, bytes: 871..893), hits: 7)
+-  runtime IC 573 -> Item 19: Line (location: (source ID: 37, lines: 22..23, bytes: 908..1000), hits: 7)
+-  runtime IC 573 -> Item 20: Statement (location: (source ID: 37, lines: 22..23, bytes: 908..1000), hits: 7)
+-  runtime IC 715 -> Item 21: Line (location: (source ID: 37, lines: 25..26, bytes: 1021..1040), hits: 7)
+-  runtime IC 715 -> Item 22: Statement (location: (source ID: 37, lines: 25..26, bytes: 1021..1040), hits: 7)
+-  runtime IC 805 -> Item 23: Line (location: (source ID: 37, lines: 26..34, bytes: 1050..1289), hits: 7)
+-  runtime IC 805 -> Item 24: Statement (location: (source ID: 37, lines: 26..34, bytes: 1050..1289), hits: 7)
+-  runtime IC 806 -> Item 25: Statement (location: (source ID: 37, lines: 26..34, bytes: 1066..1289), hits: 7)
+-  runtime IC 911 -> Item 26: Line (location: (source ID: 37, lines: 35..36, bytes: 1300..1318), hits: 7)
+-  runtime IC 911 -> Item 27: Statement (location: (source ID: 37, lines: 35..36, bytes: 1300..1318), hits: 7)
+-  runtime IC 1001 -> Item 28: Line (location: (source ID: 37, lines: 37..38, bytes: 1329..1372), hits: 7)
+-  runtime IC 1001 -> Item 29: Statement (location: (source ID: 37, lines: 37..38, bytes: 1329..1372), hits: 7)
+-  runtime IC 1002 -> Item 30: Statement (location: (source ID: 37, lines: 37..38, bytes: 1355..1372), hits: 7)
+-  runtime IC 1042 -> Item 31: Line (location: (source ID: 37, lines: 38..39, bytes: 1382..1468), hits: 7)
+-  runtime IC 1042 -> Item 32: Statement (location: (source ID: 37, lines: 38..39, bytes: 1382..1468), hits: 7)
+-  runtime IC 1156 -> Item 33: Line (location: (source ID: 37, lines: 40..41, bytes: 1479..1508), hits: 7)
+-  runtime IC 1156 -> Item 34: Statement (location: (source ID: 37, lines: 40..41, bytes: 1479..1508), hits: 7)
+-  runtime IC 98 -> Item 35: Line (location: (source ID: 37, lines: 43..44, bytes: 1521..1547), hits: 0)
+-  runtime IC 98 -> Item 36: Function "run" (location: (source ID: 37, lines: 43..44, bytes: 1521..1547), hits: 0)
+
+Anchors for Contract "FundSubscription" (solc 0.8.30, source ID 39):
+-  runtime IC 218 -> Item 119: Line (location: (source ID: 39, lines: 39..47, bytes: 1465..1851), hits: 0)
+-  runtime IC 218 -> Item 120: Function "fundSubscriptionUsingConfig" (location: (source ID: 39, lines: 39..47, bytes: 1465..1851), hits: 0)
+-  runtime IC 1361 -> Item 121: Line (location: (source ID: 39, lines: 40..41, bytes: 1521..1567), hits: 0)
+-  runtime IC 1361 -> Item 122: Statement (location: (source ID: 39, lines: 40..41, bytes: 1521..1567), hits: 0)
+-  runtime IC 1362 -> Item 123: Statement (location: (source ID: 39, lines: 40..41, bytes: 1549..1567), hits: 0)
+-  runtime IC 1402 -> Item 124: Line (location: (source ID: 39, lines: 41..42, bytes: 1577..1641), hits: 0)
+-  runtime IC 1402 -> Item 125: Statement (location: (source ID: 39, lines: 41..42, bytes: 1577..1641), hits: 0)
+-  runtime IC 1518 -> Item 126: Line (location: (source ID: 39, lines: 42..43, bytes: 1651..1715), hits: 0)
+-  runtime IC 1518 -> Item 127: Statement (location: (source ID: 39, lines: 42..43, bytes: 1651..1715), hits: 0)
+-  runtime IC 1634 -> Item 128: Line (location: (source ID: 39, lines: 43..44, bytes: 1725..1774), hits: 0)
+-  runtime IC 1634 -> Item 129: Statement (location: (source ID: 39, lines: 43..44, bytes: 1725..1774), hits: 0)
+-  runtime IC 1750 -> Item 130: Line (location: (source ID: 39, lines: 45..46, bytes: 1785..1844), hits: 0)
+-  runtime IC 1750 -> Item 131: Statement (location: (source ID: 39, lines: 45..46, bytes: 1785..1844), hits: 0)
+-  runtime IC 190 -> Item 132: Line (location: (source ID: 39, lines: 48..63, bytes: 1857..2553), hits: 7)
+-  runtime IC 190 -> Item 133: Function "fundSubscription" (location: (source ID: 39, lines: 48..63, bytes: 1857..2553), hits: 7)
+-  runtime IC 431 -> Item 134: Line (location: (source ID: 39, lines: 49..50, bytes: 1967..2020), hits: 7)
+-  runtime IC 431 -> Item 135: Statement (location: (source ID: 39, lines: 49..50, bytes: 1967..2020), hits: 7)
+-  runtime IC 494 -> Item 136: Line (location: (source ID: 39, lines: 50..51, bytes: 2030..2084), hits: 7)
+-  runtime IC 494 -> Item 137: Statement (location: (source ID: 39, lines: 50..51, bytes: 2030..2084), hits: 7)
+-  runtime IC 557 -> Item 138: Line (location: (source ID: 39, lines: 51..52, bytes: 2094..2136), hits: 7)
+-  runtime IC 557 -> Item 139: Statement (location: (source ID: 39, lines: 51..52, bytes: 2094..2136), hits: 7)
+-  runtime IC 623 -> Item 140: Line (location: (source ID: 39, lines: 53..54, bytes: 2151..2182), hits: 7)
+-  runtime IC 623 -> Item 141: Statement (location: (source ID: 39, lines: 53..54, bytes: 2151..2182), hits: 7)
+-  runtime IC 650 -> Item 142: Branch (branch: 0, path: 0) (location: (source ID: 39, lines: 53..58, bytes: 2184..2358), hits: 7)
+-  runtime IC 1350 -> Item 143: Branch (branch: 0, path: 1) (location: (source ID: 39, lines: 53..62, bytes: 2147..2547), hits: 0)
+-  runtime IC 650 -> Item 144: Line (location: (source ID: 39, lines: 54..55, bytes: 2198..2217), hits: 7)
+-  runtime IC 650 -> Item 145: Statement (location: (source ID: 39, lines: 54..55, bytes: 2198..2217), hits: 7)
+-  runtime IC 740 -> Item 146: Line (location: (source ID: 39, lines: 55..56, bytes: 2231..2315), hits: 7)
+-  runtime IC 740 -> Item 147: Statement (location: (source ID: 39, lines: 55..56, bytes: 2231..2315), hits: 7)
+-  runtime IC 873 -> Item 148: Line (location: (source ID: 39, lines: 56..57, bytes: 2329..2347), hits: 7)
+-  runtime IC 873 -> Item 149: Statement (location: (source ID: 39, lines: 56..57, bytes: 2329..2347), hits: 7)
+-  runtime IC 989 -> Item 150: Line (location: (source ID: 39, lines: 58..59, bytes: 2378..2397), hits: 0)
+-  runtime IC 989 -> Item 151: Statement (location: (source ID: 39, lines: 58..59, bytes: 2378..2397), hits: 0)
+-  runtime IC 1079 -> Item 152: Line (location: (source ID: 39, lines: 59..60, bytes: 2411..2504), hits: 0)
+-  runtime IC 1079 -> Item 153: Statement (location: (source ID: 39, lines: 59..60, bytes: 2411..2504), hits: 0)
+-  runtime IC 1265 -> Item 154: Line (location: (source ID: 39, lines: 60..61, bytes: 2518..2536), hits: 0)
+-  runtime IC 1265 -> Item 155: Statement (location: (source ID: 39, lines: 60..61, bytes: 2518..2536), hits: 0)
+-  runtime IC 348 -> Item 156: Line (location: (source ID: 39, lines: 64..67, bytes: 2559..2627), hits: 0)
+-  runtime IC 348 -> Item 157: Function "run.1" (location: (source ID: 39, lines: 64..67, bytes: 2559..2627), hits: 0)
+-  runtime IC 1799 -> Item 158: Line (location: (source ID: 39, lines: 65..66, bytes: 2591..2620), hits: 0)
+-  runtime IC 1799 -> Item 159: Statement (location: (source ID: 39, lines: 65..66, bytes: 2591..2620), hits: 0)
+
+Anchors for Contract "CreateSubscription" (solc 0.8.30, source ID 39):
+-  runtime IC 88 -> Item 88: Line (location: (source ID: 39, lines: 11..18, bytes: 452..766), hits: 0)
+-  runtime IC 88 -> Item 89: Function "createSubscriptionUsingConfig" (location: (source ID: 39, lines: 11..18, bytes: 452..766), hits: 0)
+-  runtime IC 213 -> Item 90: Line (location: (source ID: 39, lines: 12..13, bytes: 543..589), hits: 0)
+-  runtime IC 213 -> Item 91: Statement (location: (source ID: 39, lines: 12..13, bytes: 543..589), hits: 0)
+-  runtime IC 214 -> Item 92: Statement (location: (source ID: 39, lines: 12..13, bytes: 571..589), hits: 0)
+-  runtime IC 254 -> Item 93: Line (location: (source ID: 39, lines: 13..14, bytes: 599..663), hits: 0)
+-  runtime IC 254 -> Item 94: Statement (location: (source ID: 39, lines: 13..14, bytes: 599..663), hits: 0)
+-  runtime IC 370 -> Item 95: Line (location: (source ID: 39, lines: 15..16, bytes: 674..719), hits: 0)
+-  runtime IC 370 -> Item 96: Statement (location: (source ID: 39, lines: 15..16, bytes: 674..719), hits: 0)
+-  runtime IC 384 -> Item 97: Line (location: (source ID: 39, lines: 16..17, bytes: 729..759), hits: 0)
+-  runtime IC 384 -> Item 98: Statement (location: (source ID: 39, lines: 16..17, bytes: 729..759), hits: 0)
+-  runtime IC 119 -> Item 99: Line (location: (source ID: 39, lines: 19..30, bytes: 772..1260), hits: 7)
+-  runtime IC 119 -> Item 100: Function "createSubscription" (location: (source ID: 39, lines: 19..30, bytes: 772..1260), hits: 7)
+-  runtime IC 398 -> Item 101: Line (location: (source ID: 39, lines: 20..21, bytes: 874..943), hits: 7)
+-  runtime IC 398 -> Item 102: Statement (location: (source ID: 39, lines: 20..21, bytes: 874..943), hits: 7)
+-  runtime IC 454 -> Item 103: Line (location: (source ID: 39, lines: 22..23, bytes: 954..973), hits: 7)
+-  runtime IC 454 -> Item 104: Statement (location: (source ID: 39, lines: 22..23, bytes: 954..973), hits: 7)
+-  runtime IC 544 -> Item 105: Line (location: (source ID: 39, lines: 23..24, bytes: 983..1050), hits: 7)
+-  runtime IC 544 -> Item 106: Statement (location: (source ID: 39, lines: 23..24, bytes: 983..1050), hits: 7)
+-  runtime IC 677 -> Item 107: Line (location: (source ID: 39, lines: 24..25, bytes: 1060..1078), hits: 7)
+-  runtime IC 677 -> Item 108: Statement (location: (source ID: 39, lines: 24..25, bytes: 1060..1078), hits: 7)
+-  runtime IC 767 -> Item 109: Line (location: (source ID: 39, lines: 26..27, bytes: 1089..1139), hits: 7)
+-  runtime IC 767 -> Item 110: Statement (location: (source ID: 39, lines: 26..27, bytes: 1089..1139), hits: 7)
+-  runtime IC 830 -> Item 111: Line (location: (source ID: 39, lines: 27..28, bytes: 1149..1213), hits: 7)
+-  runtime IC 830 -> Item 112: Statement (location: (source ID: 39, lines: 27..28, bytes: 1149..1213), hits: 7)
+-  runtime IC 864 -> Item 113: Line (location: (source ID: 39, lines: 28..29, bytes: 1223..1253), hits: 7)
+-  runtime IC 864 -> Item 114: Statement (location: (source ID: 39, lines: 28..29, bytes: 1223..1253), hits: 7)
+-  runtime IC 78 -> Item 115: Line (location: (source ID: 39, lines: 31..34, bytes: 1266..1338), hits: 0)
+-  runtime IC 78 -> Item 116: Function "run.0" (location: (source ID: 39, lines: 31..34, bytes: 1266..1338), hits: 0)
+-  runtime IC 199 -> Item 117: Line (location: (source ID: 39, lines: 32..33, bytes: 1300..1331), hits: 0)
+-  runtime IC 199 -> Item 118: Statement (location: (source ID: 39, lines: 32..33, bytes: 1300..1331), hits: 0)
+
